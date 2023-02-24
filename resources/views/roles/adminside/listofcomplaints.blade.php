@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,82 +44,75 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">REGISTRATION REQUESTS</h1>
-                        
+                        <h1 class="h3 mb-0 text-gray-800">Complaints</h1>    
                     </div>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800"></h1>
                     <p class="mb-4"><a target="_blank"
-                            href=""></a></p>
-
+                            href=""> </a></p>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
+                        
+                        {{--  --}}
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"></h6>
+                            <a href="{{ route('complaints.add')}}" class = "btn btn-primary waves-effect waves-light ">Add Complaint</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Age</th>
-                                            <th>Birth Place</th>
-                                            <th>Request Status</th>
                                             <th>ID</th>
-                                            <th></th>
+                                            <th>Complainant</th>
+                                            <th>Time Of Incident</th>
+                                            <th>Date Of Incident</th>
+                                            <th>Type</th>
+                                            <th>Details</th>
+                                            <th>Evidence</th>
+                                            <th>Options</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data as $request)
+                                        @foreach($complaints as $key => $item)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $request->firstName }}</td>
-                                            <td>{{ $request->lastName }}</td>
-                                            <td>{{ $request->birthPlace }}</td>
-                                            <td>{{ $request->userAge }}</td>
-                                            <td>{{ $request->accountStatus }}</td>
-            
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->complainant}}</td>
+                                            <td>{{$item->timeOfIncident}}</td>
+                                            <td>{{$item->dateOfIncident}}</td>
+                                            <td>{{$item->type}}</td>
+                                            <td>{{$item->details}}</td>
+                                             {{-- image src, di pa modisplay sa table --}}
                                             <td>
-                                                <img src="{{ asset($request->proofID) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
+                                                <div class="zoom" padding='10px'>
+                                                    <img src="{{ asset($item->evidence) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
+                                                </div>
                                             </td>
-                                            <td class="d-flex justify-content-center"><a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-success btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
+                                            <td class="d-flex justify-content-center">
+                                                <a href="{{url('admincomplaints') }}" class="btn btn-success btn-icon-split ml-3">
                                                 <span class="text">View</span>
-                                            </a>
-                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-primary btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
+                                                </a>
+                                                <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3">
                                                 <span class="text">Edit</span>
-                                            </a>
-                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-danger btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
-                                                <span class="text">Archive</span>
-                                            </a>
-                                             </td>
+                                                </a>
+                                                <a href="../Barangaystaff/complainstaff.php" class="btn btn-danger btn-icon-split ml-3">
+                                                    <span class="text">Archive</span>
+                                                </a>
+                                                </td>
                                         </tr>
-                                    @endforeach
+                                            @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                                            
+                                        
+                            </div>       
                         </div>
-                    </div>
-
-                    <!-- Content Row -->
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
             @include('adminfooter')
-            
         </div>
         <!-- End of Content Wrapper -->
 
@@ -133,24 +125,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('adminlogout')
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -166,10 +141,10 @@
     <script src="../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    {{-- <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="../js/demo/chart-area-demo.js"></script>
     <script src="../js/demo/chart-pie-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     
     <script>
         function expandImage() {
@@ -199,24 +174,11 @@
     }
     </script>
     <style>
+        /* FOR ONCLICK ON IMAGE */
         * {
            box-sizing: border-box; 
         }
         
-        .zoom {
-          padding: 5px;
-          /* //background-color: green; */
-          transition: transform .2s;
-          width: 70px;
-          height: 70px;
-          margin: 0 auto;
-        }
-        
-        .zoom:hover {
-          -ms-transform: scale(2); /* IE 9 */
-          -webkit-transform: scale(7); /* Safari 3-8 */
-          transform: scale(7); 
-        }
         .expanded-image {
         position: fixed;
         z-index: 9999;
@@ -235,12 +197,8 @@
         max-height: 90%;
         object-fit: contain;
         }
-
     </style>
-    
-    
 
 </body>
 
 </html>
-

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\householdtablemodel;
 use App\Http\Controllers\customauthcontroller;
 use App\Http\Controllers\regrequestcontroller;
+use App\Http\Controllers\complaintsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +101,17 @@ Route::view('addstaff', 'roles.adminside.addstaff')->name('addstaff');
 Route::view('reg', 'auth.register');
 //ROUTE DISPLAY FOR REGISTRATION REQUESTS
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
+
+//COMPLAINTS
+Route::controller(complaintsController::class)->group(function ()
+{
+    Route::get('/complaints/all', 'viewComplaints')->name('roles.adminside.listofcomplaints');
+    Route::get('/complaints/add', 'addComplaints')->name('complaints.add');
+    Route::get('/complaints/edit/{id}', 'editComplaint')->name('complaints.edit');
+    Route::POST('/complaints/store', 'storeComplaints')->name('complaints.store');
+    Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');    
+
+});
 
 //ROUTE DISPLAY FOR STAFF LIST
 Route::get('stafflist', [regrequestcontroller::class, 'displayStaffList'])->name('stafflist');

@@ -99,8 +99,10 @@ Route::get('/logout', [customauthcontroller::class,'logOut'])->name('logout');
 Route::get('residentlist', [regrequestcontroller::class, 'displayResidentList'])->name('residentlist');
 Route::view('addstaff', 'roles.adminside.addstaff')->name('addstaff');
 Route::view('reg', 'auth.register');
+
 //ROUTE DISPLAY FOR REGISTRATION REQUESTS
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
+Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
 
 //COMPLAINTS
 Route::controller(complaintsController::class)->group(function ()

@@ -79,82 +79,84 @@
                                     <div>
                                         <h3>PERSONAL INFORMATION</h3>
                                         <label for="inputEmail4">First Name:</label>
-                                        <input type="text" name="name" class="form-control" >
+                                        <input type="text" name="fname" class="form-control" value="{{ $data->firstName}}">
                                         <label for="inputEmail4">Last Name:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="lname" class="form-control" value="{{ $data->middleName}}">
                                         <label for="inputEmail4">Middle Name:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="mname" class="form-control">
                                         <label for="inputEmail4">Suffix:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="suffix" class="form-control">
                                         <label for="inputEmail4">Birth Date:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="bdate" class="form-control">
                                         <label for="inputEmail4">Birth Place:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="bplace" class="form-control">
                                         <label for="inputEmail4">Age::</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="age" class="form-control">
                                         <label for="inputEmail4">Civil Status:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="cstatus" class="form-control">
                                         <label for="inputEmail4">Occupation:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="occupation" class="form-control">
                                         <label for="inputEmail4">Gender:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="gender" class="form-control">
                                         <label for="inputEmail4">Blood Type:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="btype" class="form-control">
                                         <label for="inputEmail4">Weight:</label>
-                                        <input type="text" name="name" class="form-control">
-                                        <label for="inputEmail4">Height:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="weight" class="form-control">
+                                        <label for="inputEmail4">height:</label>
+                                        <input type="text" name="height" class="form-control">
                                         <label for="inputEmail4">Citizenship:</label>
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="citizenship" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-5 col-lg-5">
                                         <div>
                                             <h3>EDUCATIONAL BACKGROUND</h3>
                                                 <label for="inputEmail4">INSTITUTION GRADUATED:</label>
-                                                <input type="text" name="name" class="form-control">
+                                                <input type="text" name="school" class="form-control">
                                                 <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
-                                                <input type="text" name="name" class="form-control">
+                                                <input type="text" name="education" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-5 col-lg-5">
                                         <div>
                                             <h3>FAMILY BACKGROUND</h3>
                                             <label for="inputEmail4">FATHER'S FIRST NAME:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="ffname" class="form-control">
                                             <label for="inputEmail4">FATHER'S MIDDLE NAME:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="fmname" class="form-control">
                                             <label for="inputEmail4">FATHER'S LAST NAME:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="flname" class="form-control">
                                             <label for="inputEmail4">FATHER'S SUFFIX:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="fsuffix" class="form-control">
                                             <label for="inputEmail4">MOTHERS'S FIRST NAME:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="mfname" class="form-control">
                                             <label for="inputEmail4">MOTHER'S MIDDLE NAME:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="mmname" class="form-control">
                                             <label for="inputEmail4">MOTHER'S LAST NAME:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="mlname" class="form-control">
                                             <label for="inputEmail4">MOTHER'S SUFFIX:</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="msuffix" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-5 col-lg-5">
                                         <div>
                                             <h3>RESIDENCE</h3>
                                             <label for="inputEmail4">PERMANENT ADDRESS</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="permanent" class="form-control">
                                             <label for="inputEmail4">PRESENT ADDRESS</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="present" class="form-control">
                                             <label for="inputEmail4">CONTACT NUMBER</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="number" class="form-control">
                                             <label for="inputEmail4">HOUSEHOLD ID</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="householdid" class="form-control">
                                             <label for="inputEmail4">HOUSEHOLD NO.</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="householdno" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary">Add Complaint</button>
+                                        <button type="submit" class="btn btn-primary">Back</button>
+                                        <button type="submit" class="btn btn-primary">Approve</button>
+                                        <button type="submit" class="btn btn-primary">Reject</button>
                                 </div>             
                             </div>
                         </div>

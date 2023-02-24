@@ -103,6 +103,7 @@ Route::view('reg', 'auth.register');
 //ROUTE DISPLAY FOR REGISTRATION REQUESTS
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
 Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
+Route::get('/request/{id}', 'regrequestcontroller@show');
 
 //COMPLAINTS
 Route::controller(complaintsController::class)->group(function ()

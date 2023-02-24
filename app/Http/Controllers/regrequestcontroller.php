@@ -41,4 +41,9 @@ class regrequestcontroller extends Controller
     //     residenttablemodel::create($requestData);
     //     return redirect('admindashboard')->with('flash_message', 'Employee Addedd!');  
     // }
+    public function show($id)
+    {
+        $data = residenttablemodel::find($id);
+        return view('roles.admin.viewrequestdetails', ['data' => $data]);
+    }
 }

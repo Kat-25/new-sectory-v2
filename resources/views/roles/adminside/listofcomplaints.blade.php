@@ -56,7 +56,7 @@
                         {{--  --}}
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"></h6>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaladd">
                                Add Complaints
                             </button>
                             @include('addcomplaintsmodal')
@@ -93,7 +93,7 @@
                                             </td>
                                             <td class="d-flex justify-content-center">
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                                                <button type="" class="btn btn-success" data-toggle="modal" data-target="#viewcomplaintdetails">
                                                     View
                                                 </button>
                                                 @include('viewcomplaintdetails')

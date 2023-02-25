@@ -79,9 +79,9 @@
                                     <div>
                                         <h3>PERSONAL INFORMATION</h3>
                                         <label for="inputEmail4">First Name:</label>
-                                        <input type="text" name="fname" class="form-control" value="{{ $data->firstName}}">
+                                        <input type="text" name="fname" class="form-control" >
                                         <label for="inputEmail4">Last Name:</label>
-                                        <input type="text" name="lname" class="form-control" value="{{ $data->middleName}}">
+                                        <input type="text" name="lname" class="form-control" >
                                         <label for="inputEmail4">Middle Name:</label>
                                         <input type="text" name="mname" class="form-control">
                                         <label for="inputEmail4">Suffix:</label>

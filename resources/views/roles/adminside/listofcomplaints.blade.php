@@ -56,10 +56,7 @@
                         {{--  --}}
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"></h6>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                               Add Complaints
-                            </button>
-                            @include('addcomplaintsmodal')
+                            <a href="{{ route('complaints.add')}}" class = "btn btn-primary waves-effect waves-light ">Add Complaint</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -92,16 +89,12 @@
                                                 </div>
                                             </td>
                                             <td class="d-flex justify-content-center">
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                                                    View
-                                                </button>
-                                                @include('viewcomplaintdetails')
-
-                                                <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3"data-toggle="modal" data-target="#exampleModal1">
+                                                <a href="{{url('admincomplaints') }}" class="btn btn-success btn-icon-split ml-3">
+                                                <span class="text">View</span>
+                                                </a>
+                                                <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3">
                                                 <span class="text">Edit</span>
                                                 </a>
-                                                @include('editcomplaintsmodal')
                                                 <a href="../Barangaystaff/complainstaff.php" class="btn btn-danger btn-icon-split ml-3">
                                                     <span class="text">Archive</span>
                                                 </a>
@@ -116,13 +109,13 @@
                         </div>
                 </div>
                 <!-- /.container-fluid -->
-               
+
             </div>
             <!-- End of Main Content -->
-            
+            @include('adminfooter')
         </div>
         <!-- End of Content Wrapper -->
-        @include('adminfooter')
+
     </div>
     <!-- End of Page Wrapper -->
 
@@ -135,6 +128,21 @@
     @include('adminlogout')
 
     <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="../js/demo/chart-pie-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     

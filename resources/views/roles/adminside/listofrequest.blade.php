@@ -86,7 +86,8 @@
                                             <td>
                                                 <img src="{{ asset($request->proofID) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
-                                            <td class="d-flex justify-content-center"><a class="btn btn-success btn-icon-split" onclick="toggleForm()">
+                                            <td class="d-flex justify-content-center">
+                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-flag"></i>
                                                 </span>

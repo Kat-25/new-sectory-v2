@@ -84,7 +84,7 @@
                                         <input type="date" name="date" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
                                         </div>
                                         <div class="col-sm-3 col-lg-3">
-                                            <div class="form-group">
+                                            <div class="form-group mt-2">
                                                 <strong>Time:</strong>
                                                 <input type="time" name="time" class="form-control">
                                             </div>

@@ -15,6 +15,7 @@ use App\Models\householdtablemodel;
 use App\Http\Controllers\customauthcontroller;
 use App\Http\Controllers\regrequestcontroller;
 use App\Http\Controllers\complaintsController;
+use App\Http\Controllers\documentcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,27 +29,21 @@ use App\Http\Controllers\complaintsController;
 */
 
 //ADMIN SIDE FUNCTION ROUTES
-
 Route::view('addhouseholds', 'roles.adminside.addhouseholds')->name('addhouseholds');
 Route::POST('addhousehold', [addhouseholdcontroller::class,'addHousehold']);
 
 Route::view('adminindex', 'roles.adminside.adminindex');
 Route::POST('addhousehold', [addhouseholdcontroller::class,'addHouseholdFunc']);
 
-
 //Route::view('addresident', 'roles.adminside.addresidents');
 
-
 Route::view('adduser', 'roles.adminside.addusers');
-
 
 Route::view('viewresident', 'roles.adminside.viewresidents');
 Route::get('viewresident', [viewresidentscontroller::class, 'viewResidentsFunc'])->name('viewresident');
 
-
 Route::view('viewhousehold', 'roles.adminside.viewhousehold');
 Route::get('viewhousehold', [viewhouseholdscontroller::class, 'viewHouseholdsFunc'])->name('viewhousehold');
-
 
 //ROUTES FOR EDIT HOUSEHOLD
 Route::get('update/{id}', [edithouseholdcontroller::class, 'showValueHouseholdsFunc']);
@@ -70,17 +65,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-
-
-
 //ROUTES FOR COUNTING RESIDENT IN DASHBOARD
 Route::get('admindashboard', [dashboardcountcontroller::class, 'countResidents'])->name('admindashboard');
-
-
-
-
-
 
 //ROUTES FOR ADD RESIDENT VIEW
 Route::get('/getHouseholdID', [viewhouseholdscontroller::class,'getHouseholdID']);
@@ -93,7 +79,6 @@ Route::get('/registration',[customauthcontroller::class,'registration']);
 Route::post('/register-user', [customauthcontroller::class,'registerUser'])->name('register-user');
 Route::post('login-user',[customauthcontroller::class,'loginUser'])->name('login-user');
 Route::get('/logout', [customauthcontroller::class,'logOut'])->name('logout');
-
 
 //ROUTE DISPLAY FOR RESIDENT LIST
 Route::get('residentlist', [regrequestcontroller::class, 'displayResidentList'])->name('residentlist');
@@ -120,8 +105,13 @@ Route::controller(complaintsController::class)->group(function ()
 Route::get('stafflist', [regrequestcontroller::class, 'displayStaffList'])->name('stafflist');
 
 //RESIDENT SIDE FUNCTION ROOTS
-
 Route::view('dashboard','roles.userside.resdashboard')->name('dashboard');
+
+//ROUTES FOR DOCUMENT MANAGEMENT
+Route::view('manageDocument', 'roles.adminside.manageDocument')->name('manageDocument');
+Route::get('/manageDocument', [documentcontroller::class, 'createForm']);
+Route::post('/manageDocument',[documentcontroller::class, 'fileUpload'])->name('fileUpload');
+
 
 
 

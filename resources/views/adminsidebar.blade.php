@@ -77,6 +77,12 @@
             </div>
         </div>
     </li>
+    <!-- Nav Item - Document -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Documents</span></a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">

@@ -123,6 +123,10 @@ Route::controller(complaintsController::class)->group(function ()
     Route::POST('/complaints/store', 'storeComplaints')->name('complaints.store');
     Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');
     Route::view('/complaints/details/', 'roles.adminside.viewcomplaintdetails');
+    Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');    
+    Route::view('/complaints/details/', 'roles.adminside.viewcomplaintdetails');    
+    Route::delete('/residents/{id}', 'destroy')->name('deletecomplaint');
+
 });
 
 //ROUTE DISPLAY FOR STAFF LIST

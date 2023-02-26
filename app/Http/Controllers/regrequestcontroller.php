@@ -44,7 +44,7 @@ class regrequestcontroller extends Controller
     public function showDetails($id)
     {
         $data = residenttablemodel::find($id);
-        return view('roles.adminside.viewrequestdetails',compact('data'));
+        return view('roles.adminside.viewrequestdetails', ['data' => $data]);
     }
     // public function editComplaint($id){
     //     $complaint = Complaints::findOrFail($id);

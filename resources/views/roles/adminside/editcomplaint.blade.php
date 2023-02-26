@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-                                <form method="POST" action={{ route('complaints.update') }} name="complaintForm">
+                                <form method="POST" name="complaintForm">
                                     @csrf
                                 <div class="card-body">
                                 <div class="form-group">

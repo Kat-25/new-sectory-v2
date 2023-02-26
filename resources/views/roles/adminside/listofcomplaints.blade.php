@@ -73,7 +73,7 @@
                                             <th>Type</th>
                                             <th>Details</th>
                                             <th>Evidence</th>
-                                            <th>Options</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -85,27 +85,45 @@
                                             <td>{{$item->dateOfIncident}}</td>
                                             <td>{{$item->type}}</td>
                                             <td>{{$item->details}}</td>
-                                             {{-- image src, di pa modisplay sa table --}}
                                             <td>
-                                                <div class="zoom" padding='10px'>
-                                                    <img src="{{ asset($item->evidence) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
-                                                </div>
+                                                <img src="{{ asset($item->evidence) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
-                                            <td class="d-flex justify-content-center">
+                                             {{-- image src, di pa modisplay sa table --}}
+                                             <td class="d-flex justify-content-center">
                                                 <!-- Button trigger modal -->
-                                                <button type="" class="btn btn-success" data-toggle="modal" data-target="#viewcomplaintdetails">
-                                                    View
-                                                </button>
+                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#viewcomplaintdetails">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                    </span>
+                                                    <span class="text">View</span>
+                                                </a>
+                                                
                                                 @include('viewcomplaintdetails')
 
                                                 <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3"data-toggle="modal" data-target="#exampleModal1">
-                                                <span class="text">Edit</span>
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                    </span>
+                                                    <span class="text">Edit</span>
                                                 </a>
                                                 @include('editcomplaintsmodal')
-                                                <a href="../Barangaystaff/complainstaff.php" class="btn btn-danger btn-icon-split ml-3">
-                                                    <span class="text">Archive</span>
-                                                </a>
+                                                
+                                                <form action="{{ route('deletecomplaint', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')  
+                                                    <button type="submit" class="btn btn-danger" class="btn btn-danger btn-icon-split btn-icon-split ml-3" title="Delete" id="delete">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-flag"></i>
+                                                        </span>   Delete
+                                                    </button>
+                            
+                                                </form>
+                                                {{-- <a action="{{ route('deletecomplaint', $item->id) }}" class="btn btn-danger btn-icon-split btn-icon-split ml-3" title="Delete" id="delete">
+                                                    
+                                                    <span class="text">Delete</span>
+                                                </a> --}}
                                                 </td>
+                                                
                                         </tr>
                                             @endforeach
                                     </tbody>

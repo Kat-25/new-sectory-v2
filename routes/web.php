@@ -115,7 +115,9 @@ Route::controller(complaintsController::class)->group(function ()
     Route::get('/complaints/edit/{id}', 'editComplaint')->name('complaints.edit');
     Route::POST('/complaints/store', 'storeComplaints')->name('complaints.store');
     Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');    
-    Route::view('/complaints/details/', 'roles.adminside.viewcomplaintdetails');
+    Route::view('/complaints/details/', 'roles.adminside.viewcomplaintdetails');    
+    Route::delete('/residents/{id}', 'destroy')->name('deletecomplaint');
+
 });
 
 //ROUTE DISPLAY FOR STAFF LIST

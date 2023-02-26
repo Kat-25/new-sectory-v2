@@ -69,5 +69,24 @@ class complaintsController extends Controller
 
         return redirect('/complaints/all');
     }
+    // public function destroy($id) {
+    //    Complaints::findOrFail($id)->delete();
+
+    //    return redirect()->back();
+    // }
+    public function destroy($id)
+    {
+        $complaint = Complaints::find($id);
+
+        if ($complaint) {
+            $complaint->delete();
+            return redirect()->route('roles.adminside.listofcomplaints')
+                ->with('success', 'Complaint deleted successfully.');
+        } else {
+            return redirect()->route('roles.adminside.listofcomplaints')
+                ->with('error', 'Complaint not found.');
+    }
+    }
+    
 
 }

@@ -97,13 +97,13 @@
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-flag"></i>
                                                 </span>
-                                                <span class="text">Edit</span>
+                                                <span class="text">Approve</span>
                                             </a>
                                             <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-danger btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-flag"></i>
                                                 </span>
-                                                <span class="text">Archive</span>
+                                                <span class="text">Reject</span>
                                             </a>
                                              </td>
                                         </tr>
@@ -113,7 +113,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <div class="overlay-form">
+                                {{-- <div class="overlay-form">
                                     <div class="close-btn" onclick="toggleForm()">&times;</div>
                                     <h1>VIEW DETAILS</h1>
                                     
@@ -121,7 +121,7 @@
                                       <label for="fullname">Fullname</label>
                                       <input type="text" id="fullname">
                                     </div>
-                                </div>     
+                                </div>      --}}
                             </div>
                         </div>
                         

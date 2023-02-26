@@ -80,86 +80,87 @@
                                                     <div>
                                                         <h3>PERSONAL INFORMATION</h3>
                                                          <label for="fname">First Name:</label>
-                                                        <input type="text" name="fname" value="{{$data->firstName}}">
+                                                        <input type="text" readonly class="form-control" name="fname" value="{{$residents['firstName']}}">
                                                         <label for="inputEmail4">Last Name:</label>
-                                                        <input type="text" name="lname" value="{{$data->lastName}}" >
+                                                        <input type="text" readonly class="form-control" name="lname" value="{{$residents['lastName']}}" >
                                                         <label for="inputEmail4">Middle Name:</label>
-                                                        <input type="text" name="mname" value="{{$data->middleName}}">
+                                                        <input type="text" readonly class="form-control" name="mname" value="{{$residents['middleName']}}">
                                                         <label for="inputEmail4">Suffix:</label>
-                                                        <input type="text" name="suffix" value="{{$data->userSuffix}}">
+                                                        <input type="text" readonly class="form-control" name="suffix" value="{{$residents['userSuffix']}}">
                                                         <label for="inputEmail4">Birth Date:</label>
-                                                        <input type="text" name="bdate" value="{{$data->birthDate}}">
+                                                        <input type="text" readonly class="form-control" name="bdate" value="{{$residents['birthDate']}}">
                                                         <label for="inputEmail4">Birth Place:</label>
-                                                        <input type="text" name="bplace" value="{{$data->birthPlace}}">
+                                                        <input type="text" readonly class="form-control" name="bplace" value="{{$residents['birthPlace']}}">
                                                         <label for="inputEmail4">Age::</label>
-                                                        <input type="text" name="age" value="{{$data->userAge}}">
+                                                        <input type="text" readonly class="form-control" name="age" value="{{$residents['userAge']}}">
                                                         <label for="inputEmail4">Civil Status:</label>
-                                                        <input type="text" name="cstatus" value="{{$data->civilStatus}}">
+                                                        <input type="text" readonly class="form-control" name="cstatus" value="{{$residents['civilStatus']}}">
                                                         <label for="inputEmail4">Occupation:</label>
-                                                        <input type="text" name="occupation" value="{{$data->userOccupation}}">
+                                                        <input type="text" readonly class="form-control" name="occupation" value="{{$residents['userOccupation']}}">
                                                         <label for="inputEmail4">Gender:</label>
-                                                        <input type="text" name="gender" value="{{$data->userGender}}">
+                                                        <input type="text" readonly class="form-control" name="gender" value="{{$residents['userGender']}}">
                                                         <label for="inputEmail4">Blood Type:</label>
-                                                        <input type="text" name="btype" value="{{$data->bloodType}}">
+                                                        <input type="text" readonly class="form-control" name="btype" value="{{$residents['bloodType']}}">
                                                         <label for="inputEmail4">Religion:</label>
-                                                        <input type="text" name="religion" value="{{$data->userReligion}}">
+                                                        <input type="text" readonly class="form-control" name="religion" value="{{$residents['userReligion']}}">
                                                         <label for="inputEmail4">Weight:</label>
-                                                        <input type="text" name="weight" value="{{$data->userWeight}}">
+                                                        <input type="text" readonly class="form-control" name="weight" value="{{$residents['userWeight']}}">
                                                         <label for="inputEmail4">height:</label>
-                                                        <input type="text" name="height" value="{{$data->userHeight}}">
+                                                        <input type="text" readonly class="form-control" name="height" value="{{$residents['userHeight']}}">
                                                         <label for="inputEmail4">Citizenship:</label>
-                                                        <input type="text" name="citizenship" value="{{$data->userCitizenship}}">
+                                                        <input type="text" readonly class="form-control" name="citizenship" value="{{$residents['userCitizenship']}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5">
                                                     <div>
                                                         <h3>EDUCATIONAL BACKGROUND</h3>
                                                             <label for="inputEmail4">INSTITUTION GRADUATED:</label>
-                                                            <input type="text" name="school" value="{{$data->userSchool}}" >
+                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
                                                             <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
-                                                            <input type="text" name="education" value="{{$data->userEducation}}">
+                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5">
                                                     <div>
                                                         <h3>FAMILY BACKGROUND</h3>
                                                         <label for="inputEmail4">FATHER'S FIRST NAME:</label>
-                                                        <input type="text" name="ffname" value="{{$data->fatherFirstName}}">
+                                                        <input type="text" readonly class="form-control" name="ffname" value="{{$residents['fatherFirstName']}}">
                                                         <label for="inputEmail4">FATHER'S MIDDLE NAME:</label>
-                                                        <input type="text" name="fmname" value="{{$data->fatherMiddleName}}">
+                                                        <input type="text" readonly class="form-control" name="fmname" value="{{$residents['fatherMiddleName']}}">
                                                         <label for="inputEmail4">FATHER'S LAST NAME:</label>
-                                                        <input type="text" name="flname" value="{{$data->fatherLastName}}">
+                                                        <input type="text" readonly class="form-control" name="flname" value="{{$residents['fatherLastName']}}">
                                                         <label for="inputEmail4">FATHER'S SUFFIX:</label>
-                                                        <input type="text" name="fsuffix" value="{{$data->fatherSuffix}}">
+                                                        <input type="text" readonly class="form-control" name="fsuffix" value="{{$residents['fatherSuffix']}}">
                                                         <label for="inputEmail4">MOTHERS'S FIRST NAME:</label>
-                                                        <input type="text" name="mfname" value="{{$data->motherFirstName}}">
+                                                        <input type="text" readonly class="form-control" name="mfname" value="{{$residents['motherFirstName']}}">
                                                         <label for="inputEmail4">MOTHER'S MIDDLE NAME:</label>
-                                                        <input type="text" name="mmname" value="{{$data->motherMiddleName}}">
+                                                        <input type="text" readonly class="form-control" name="mmname" value="{{$residents['motherMiddleName']}}">
                                                         <label for="inputEmail4">MOTHER'S LAST NAME:</label>
-                                                        <input type="text" name="mlname" value="{{$data->motherLastName}}">
+                                                        <input type="text" readonly class="form-control" name="mlname" value="{{$residents['motherLastName']}}">
                                                         <label for="inputEmail4">MOTHER'S SUFFIX:</label>
-                                                        <input type="text" name="msuffix" value="{{$data->motherSuffix}}">
+                                                        <input type="text" readonly class="form-control" name="msuffix" value="{{$residents['motherSuffix']}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5">
                                                     <div>
                                                         <h3>RESIDENCE</h3>
                                                         <label for="inputEmail4">PERMANENT ADDRESS</label>
-                                                        <input type="text" name="permanent" value="{{$data->permanentAddress}}">
+                                                        <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
                                                         <label for="inputEmail4">PRESENT ADDRESS</label>
-                                                        <input type="text" name="present" value="{{$data->presentAddress}}">
+                                                        <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
                                                         <label for="inputEmail4">CONTACT NUMBER</label>
-                                                        <input type="text" name="number" value="{{$data->contactNumber}}">
+                                                        <input type="text" readonly class="form-control" name="number" value="{{$residents['contactNumber']}}">
                                                         <label for="inputEmail4">HOUSEHOLD ID</label>
-                                                        <input type="text" name="householdid" value="{{$data->householdNo}}">
+                                                        <input type="text" readonly class="form-control" name="householdid" value="{{$residents['householdID']}}">
                                                         <label for="inputEmail4">HOUSEHOLD NO.</label>
-                                                        <input type="text" name="householdno" value="{{$data->householdID}}">
+                                                        <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>
-                                                    <button type="submit" class="btn btn-primary">Approve</button>
-                                                    <button type="submit" class="btn btn-primary">Reject</button>
+                                                    
+                                                    <button type="submit" class="btn btn-primary" name="approve" id="approve">Approve</button>
+                                                    <button type="submit" class="btn btn-primary" name="reject" id="reject">Reject</button>
                                                 </div>   
                                                 {{-- @endforeach           --}}
                                             </div>

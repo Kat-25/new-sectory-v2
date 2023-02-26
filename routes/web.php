@@ -101,9 +101,16 @@ Route::view('reg', 'auth.register');
 //ROUTE DISPLAY FOR REGISTRATION REQUESTS
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
 Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
-Route::get('/request/{id}', 'regrequestcontroller@show');
+
+Route::get('request/{id}', [regrequestcontroller::class, 'viewRequestsRegisterFunc']);
+Route::POST('viewreq', [regrequestcontroller::class, 'editResidentFunc1']);
+
+
+// OVERRIDED
+// Route::get('/request/{id}', 'regrequestcontroller@show');
 //Route::get('/registration-request/detail'[regrequestcontroller::class,'show']);
-Route::get('/request/registration/details', [regrequestcontroller::class, 'showDetails'])->name('registrationdetails.show');
+// OVERRIDED
+// Route::get('/request/registration/details', [regrequestcontroller::class, 'showDetails'])->name('registrationdetails.show');
 //Route::get('/residents/showdetails/{id}', [viewdetailsController::class, 'show'])->name('residents.show');
 
 
@@ -114,7 +121,7 @@ Route::controller(complaintsController::class)->group(function ()
     Route::get('/complaints/add', 'addComplaints')->name('complaints.add');
     Route::get('/complaints/edit/{id}', 'editComplaint')->name('complaints.edit');
     Route::POST('/complaints/store', 'storeComplaints')->name('complaints.store');
-    Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');    
+    Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');
     Route::view('/complaints/details/', 'roles.adminside.viewcomplaintdetails');
 });
 

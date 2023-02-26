@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\residenttablemodel;
 use Illuminate\Http\Request;
+use App\Models\householdtablemodel;
 
 class regrequestcontroller extends Controller
 {
@@ -32,6 +33,7 @@ class regrequestcontroller extends Controller
         ->get();
         return view('roles\adminside.stafflist', ['data' => $data]);
     }
+
     // public function store(Request $request)
     // {
     //     $requestData = $request->all();
@@ -41,11 +43,36 @@ class regrequestcontroller extends Controller
     //     residenttablemodel::create($requestData);
     //     return redirect('admindashboard')->with('flash_message', 'Employee Addedd!');  
     // }
+
     public function showDetails($id)
     {
         $data = residenttablemodel::find($id);
         return view('roles.adminside.viewrequestdetails', ['data' => $data]);
     }
+
+
+    public function viewRequestsRegisterFunc($id)
+    {
+        $data = residenttablemodel::find($id);
+        return view('roles.adminside.viewrequestdetails', ['residents' => $data]);
+    }
+
+    function viewRequestsResidentFunc(Request $req){
+        
+        $data = householdtablemodel::find($req->householdidh);
+        $data->householdNo=$req->householdno;
+        $data->householdAddress=$req->addressh;
+        $data->purokLeader=$req->purokleaderh;
+        $data->householdStatus=$req->householdstatush;
+        $data->save();
+
+        residenttablemodel::where('householdID', $req->householdidh)
+        ->update(['householdNo' => $req->householdno]);
+
+        return redirect('viewhousehold');
+    }
+
+
     // public function editComplaint($id){
     //     $complaint = Complaints::findOrFail($id);
     //     // $complaint = Complaints::all();

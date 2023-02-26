@@ -85,7 +85,9 @@
                                                             <option value="{{$residents['userRole']}}" selected>{{$residents['userRole']}}</option>
                                                             <option value="Staff">Staff</option>
                                                             <option value="Admin">Administrator</option>
-                                                    </select> 
+                                                        
+                                                    </select>
+                                                    
 
                                                     <div class="mb-2">
                                                         {{-- <label class="form-label" for="householdidh">Household ID:</label> --}}

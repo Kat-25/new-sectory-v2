@@ -15,6 +15,8 @@ use App\Models\householdtablemodel;
 use App\Http\Controllers\customauthcontroller;
 use App\Http\Controllers\regrequestcontroller;
 use App\Http\Controllers\complaintsController;
+use App\Http\Controllers\viewdetailsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +102,10 @@ Route::view('reg', 'auth.register');
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
 Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
 Route::get('/request/{id}', 'regrequestcontroller@show');
+//Route::get('/registration-request/detail'[regrequestcontroller::class,'show']);
+Route::get('/request/registration/details', [regrequestcontroller::class, 'showDetails'])->name('registrationdetails.show');
+//Route::get('/residents/showdetails/{id}', [viewdetailsController::class, 'show'])->name('residents.show');
+
 
 //COMPLAINTS
 Route::controller(complaintsController::class)->group(function ()

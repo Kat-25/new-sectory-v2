@@ -35,7 +35,7 @@
                                             <option>low</option>
                                         </select>
                                     </div>
-                                </div>
+                                    </div>
                                     <div class="form-row">
                                         <div class="form-group col col-sm-3 col-md-8 col-lg-12">
                                         <label for="complaint-title">Title</label>

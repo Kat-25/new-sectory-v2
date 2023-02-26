@@ -41,9 +41,21 @@ class regrequestcontroller extends Controller
     //     residenttablemodel::create($requestData);
     //     return redirect('admindashboard')->with('flash_message', 'Employee Addedd!');  
     // }
-    public function show($id)
+    public function showDetails($id)
     {
         $data = residenttablemodel::find($id);
-        return view('roles.admin.viewrequestdetails', ['data' => $data]);
+        return view('roles.adminside.viewrequestdetails',compact('data'));
     }
+    // public function editComplaint($id){
+    //     $complaint = Complaints::findOrFail($id);
+    //     // $complaint = Complaints::all();
+    //     return view('roles.adminside.editcomplaint', compact('complaint'));
+
+    // }
+    // public function showDetails(Request $request)
+    // {   
+    //     return view('roles.adminside.viewrequesdetails', compact('request'));
+    // }
+
+
 }

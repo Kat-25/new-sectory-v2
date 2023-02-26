@@ -39,6 +39,7 @@
                 <a class="collapse-item" href="{{route('addresident')}}">Add Resident</a>
                 <a class="collapse-item" href="{{route('residentlist')}}">Residents List</a>
                 <a class="collapse-item" href="{{route('registration-requests')}}">Registration Requests</a>
+                <a class="collapse-item" href="{{route('roles.adminside.listofcomplaints')}}">View Complaints</a>
             </div>
         </div>
         

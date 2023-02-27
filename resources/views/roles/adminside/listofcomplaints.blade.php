@@ -59,7 +59,7 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaladd">
                                Add Complaints
                             </button>
-                            @include('addcomplaintsmodal')
+                            
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -68,10 +68,10 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Complainant</th>
-                                            <th>Time Of Incident</th>
+                                            {{-- <th>Time Of Incident</th> --}}
                                             <th>Date Of Incident</th>
-                                            <th>Type</th>
-                                            <th>Details</th>
+                                            {{-- <th>Type</th> --}}
+                                            {{-- <th>Details</th> --}}
                                             <th>Evidence</th>
                                             <th>Actions</th>
                                         </tr>
@@ -81,10 +81,10 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$item->complainant}}</td>
-                                            <td>{{$item->timeOfIncident}}</td>
+                                            {{-- <td>{{$item->timeOfIncident}}</td> --}}
                                             <td>{{$item->dateOfIncident}}</td>
-                                            <td>{{$item->type}}</td>
-                                            <td>{{$item->details}}</td>
+                                            {{-- <td>{{$item->type}}</td> --}}
+                                            {{-- <td>{{$item->details}}</td> --}}
                                             <td>
                                                 <img src="{{ asset($item->evidence) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
@@ -97,16 +97,13 @@
                                                     </span>
                                                     <span class="text">View</span>
                                                 </a>
-                                                
-                                                @include('viewcomplaintdetails')
-
                                                 <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3"data-toggle="modal" data-target="#exampleModal1">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
-                                                @include('editcomplaintsmodal')
+                                               
                                                 
                                                 <form action="{{ route('deletecomplaint', $item->id) }}" method="POST">
                                                     @csrf
@@ -125,6 +122,7 @@
                                                 </td>
                                                 
                                         </tr>
+                                        
                                             @endforeach
                                     </tbody>
                                 </table>
@@ -141,6 +139,8 @@
         </div>
         <!-- End of Content Wrapper -->
         @include('adminfooter')
+        @include('viewcomplaintdetails')
+        @include('editcomplaintsmodal')
     </div>
     <!-- End of Page Wrapper -->
 
@@ -148,10 +148,14 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    @include('addcomplaintsmodal')
+    
+    
 
     <!-- Logout Modal-->
     @include('adminlogout')
-
+    
+    
     <!-- Bootstrap core JavaScript-->
     {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> --}}
@@ -208,7 +212,7 @@
         object-fit: contain;
         }
     </style>
-
+   
 </body>
 
 </html>

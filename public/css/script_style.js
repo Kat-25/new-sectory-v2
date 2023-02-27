@@ -86,3 +86,31 @@ $(document).ready(function(){
             readURL(this);
         });
     });
+// FOR IMAGE ONCLICK EXPAND
+
+        function expandImage() {
+        // Get the image element that was clicked
+        var image = event.target;
+
+         // Create a new div element to display the expanded image
+        var expandedImage = document.createElement("div");
+        expandedImage.classList.add("expanded-image");
+
+        // Create a new img element to display the expanded image
+        var img = document.createElement("img");
+        img.src = image.src;
+
+        // Add the img element to the expandedImage div
+        expandedImage.appendChild(img);
+
+        // Add the expandedImage div to the body
+        document.body.appendChild(expandedImage);
+
+        // When the user clicks anywhere on the page, remove the expandedImage div
+        window.onclick = function(event) {
+        if (event.target == expandedImage) {
+        document.body.removeChild(expandedImage);
+        }
+        }
+    }
+ 

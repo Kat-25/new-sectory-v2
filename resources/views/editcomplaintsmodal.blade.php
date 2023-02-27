@@ -9,12 +9,16 @@
                 </button>
             </div>
         <div class="modal-body">
+            {{-- {{ route('complaints.update', $complaints->id) }} --}}
+        <form action="{{ route('complaints.edit') }}" method="POST">
+            @csrf
         <div class="card-body">                   
             <div class="form-group">
                 <div class="form-row">
+                    {{-- <input type="hidden" name="_method" value="PUT"> --}}
                     <div class="form-group col col-sm-3 col-md-8 col-lg-12">
                         <label for="complainant">Complainant</label>
-                        <input type="email" class="form-control" id="">
+                        <input type="text" class="form-control" id="">
                     </div>
                     <div class="col col-sm-3 col-md-8 col-lg-12">
                         <label for="date">Date</label>
@@ -60,8 +64,8 @@
     </div>
 </div>
     <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn btn-primary">Save changes</button>
    </div>
    </div>
 </div>

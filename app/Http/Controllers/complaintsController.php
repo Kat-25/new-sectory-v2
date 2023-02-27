@@ -43,9 +43,10 @@ class complaintsController extends Controller
     }
 
     public function editComplaint($id){
-        $complaint = Complaints::findOrFail($id);
+        $data = Complaints::findOrFail($id);
         // $complaint = Complaints::all();
-        return view('roles.adminside.editcomplaint', compact('complaint'));
+        return view('editcomplaintsmodal', ['complaints' => $data]);
+      
 
     }
     public function updateComplaints(Request $request)
@@ -86,6 +87,11 @@ class complaintsController extends Controller
             return redirect()->route('roles.adminside.listofcomplaints')
                 ->with('error', 'Complaint not found.');
     }
+    }
+    public function viewDetails($id)
+    {
+        $data = Complaints::find($id);
+        return view('viewcomplaintdetails', ['complaints' => $data]);
     }
     
 

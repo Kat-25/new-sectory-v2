@@ -268,3 +268,26 @@ select.list-dt:focus {
   width: 100%;
   object-fit: cover;
 }
+/* FOR EXPANDING IMAGE */
+/* FOR ONCLICK ON IMAGE */
+* {
+   box-sizing: border-box; 
+}
+.expanded-image {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expanded-image img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}

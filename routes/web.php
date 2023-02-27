@@ -102,7 +102,6 @@ Route::view('reg', 'auth.register');
 //ROUTE DISPLAY FOR REGISTRATION REQUESTS
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
 Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
-
 Route::get('request/{id}', [regrequestcontroller::class, 'viewRequestsRegisterFunc']);
 Route::POST('viewreq', [regrequestcontroller::class, 'approveReqFunc']);
 

@@ -75,7 +75,7 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <div class="form-row">
-                                                <div class="form-group col-md-5 col-lg-5">
+                                                <div class="form-group col-md-5 col-lg-5 ml-1 mx-auto order-1 order-lg-1 order-sm-2">
                                                     {{-- @foreach($data as $data) --}}
                                                         {{-- {{ route('registrationdetails.show', ['id' => $data->id]) }} --}}
                                                     <div>
@@ -124,16 +124,14 @@
                                                         <input type="text" readonly class="form-control" name="citizenship" value="{{$residents['userCitizenship']}}">
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-5 col-lg-5">
-                                                    <div>
-                                                        <h3>EDUCATIONAL BACKGROUND</h3>
-                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
-                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
-                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
-                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
+                                                <div class="form-group col-md-5 col-lg-5 mx-auto order-2 order-sm-1">
+                                                    <h3>PROOF OF IDENTIFICATION</h3>
+                                                    <div class="d-flex ">
+                                                        <img src="{{ asset($residents->proofID) }}" width= '500' height='500' class="img img-responsive" />
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-5 col-lg-5">
+                                               
+                                                <div class="form-group col-md-5 col-lg-5 ml-1 mx-auto order-sm-3">
                                                     <div>
                                                         <h3>FAMILY BACKGROUND</h3>
                                                         <label for="inputEmail4">FATHER'S FIRST NAME:</label>
@@ -154,10 +152,19 @@
                                                         <input type="text" readonly class="form-control" name="msuffix" value="{{$residents['motherSuffix']}}">
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-5 col-lg-5">
+                                                <div class="form-group col-md-5 col-lg-5 mx-auto order-3 order-sm-3">
                                                     <div>
+                                                        <h3>EDUCATIONAL BACKGROUND</h3>
+                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
+                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
+                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
+                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
+                                                    </div>
+
+                          
+                                                    <div class="mt-4 mx-auto">
                                                         <h3>RESIDENCE</h3>
-                                                        <label for="inputEmail4">PERMANENT ADDRESS</label>
+                                                        <label for="inputEmail4" class="mt-1">PERMANENT ADDRESS</label>
                                                         <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
                                                         <label for="inputEmail4">PRESENT ADDRESS</label>
                                                         <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
@@ -169,6 +176,7 @@
                                                         <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
                                                 </div>
+<<<<<<< Updated upstream
                                                 {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>
                                                     
@@ -192,6 +200,13 @@
                                                 </div>
                                                   
                                                   
+=======
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center order-4">
+                                                    <button type="submit" class="btn btn-primary">Back</button>
+                                                    <button type="submit" class="btn btn-primary" name="approve" id="approve">Approve</button>
+                                                    <button type="submit" class="btn btn-primary" name="reject" id="reject">Reject</button>
+                                                </div>   
+>>>>>>> Stashed changes
                                                 {{-- @endforeach           --}}
                                             </div>
                                         </div>

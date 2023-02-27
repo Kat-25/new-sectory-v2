@@ -176,8 +176,7 @@
                                                         <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
                                                 </div>
-<<<<<<< Updated upstream
-                                                {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                            {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>
                                                     
                                                     {{-- <button type="submit" class="btn btn-primary" name="status" value="Approved">Approve</button>
@@ -185,7 +184,7 @@
                                                     {{-- <button type="button" class="btn btn-primary" onclick="setAccountStatus('Approved')">Approve</button>
                                                     <button type="button" class="btn btn-primary" onclick="setAccountStatus('Rejected')">Reject</button>
                                                 </div>    --}}
-                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center order-lg-4">
                                                     <div class="row mx-auto justify-content-center">
                                                       <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
                                                         <button type="button" class="btn btn-primary btn-block border" onclick="window.history.back()">Back</button>
@@ -200,13 +199,13 @@
                                                 </div>
                                                   
                                                   
-=======
-                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center order-4">
+
+                                                {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center order-4">
                                                     <button type="submit" class="btn btn-primary">Back</button>
                                                     <button type="submit" class="btn btn-primary" name="approve" id="approve">Approve</button>
                                                     <button type="submit" class="btn btn-primary" name="reject" id="reject">Reject</button>
-                                                </div>   
->>>>>>> Stashed changes
+                                                </div>    --}}
+
                                                 {{-- @endforeach           --}}
                                             </div>
                                         </div>

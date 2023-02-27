@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this template-->
     {{-- <link rel="stylesheet" href="{{ asset('css/sb_admin_2.min.css') }}"> --}}
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -64,6 +64,7 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
+                                            <th>Resident ID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Age</th>
@@ -75,9 +76,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $request)
-                                        <tr>
+                                        <tr data-resident-id="{{ $request->residentID }}">
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $request->residentID}}</td>
                                             <td>{{ $request->firstName }}</td>
+                                            
                                             <td>{{ $request->lastName }}</td>
                                             <td>{{ $request->birthPlace }}</td>
                                             <td>{{ $request->userAge }}</td>
@@ -87,25 +90,34 @@
                                                 <img src="{{ asset($request->proofID) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
                                             <td class="d-flex justify-content-center">
-                                                <a href="{{"request/".$request['residentID']}}" class="btn btn-success btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
-                                                <span class="text">View</span>
-                                            </a>
-                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-primary btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
-                                                <span class="text">Approve</span>
-                                            </a>
-                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-danger btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
-                                                <span class="text">Reject</span>
-                                            </a>
-                                             </td>
+                                                <div class="row no-gutters">
+                                                  <div class="col-4">
+                                                    <a href="{{"request/".$request['residentID']}}" class="btn btn-success btn-icon-split btn-block">
+                                                      <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                      </span>
+                                                      <span class="text">View</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="col-4">
+                                                    <a href="" class="btn btn-primary btn-icon-split btn-block" id="approveBtn" onclick="approveRequest('{{ $request->residentID }}')">
+                                                      <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                      </span>
+                                                      <span class="text">Approve</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="col-4">
+                                                    <a href="" class="btn btn-danger btn-icon-split btn-block" onclick="rejectRequest('{{ $request->residentID }}')">
+                                                      <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                      </span>
+                                                      <span class="text">Reject</span>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                              
                                         </tr>
                                           {{-- <div class="center">
                                             <button onclick="toggleForm()">Signup</button>
@@ -167,18 +179,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
     {{-- <script src="../js/demo/chart-area-demo.js"></script>
@@ -186,6 +186,93 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> --}}
     
+    {{-- <script>
+    function approveRequest(residentID) {
+        // Find the row with the matching residentID
+        var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+        
+        // Update the accountStatus cell of the row to "Approved"
+        var accountStatusCell = row.querySelector("td:nth-child(7)");
+        accountStatusCell.textContent = "Approved";
+        
+        // Make an AJAX request to update the database
+        axios.post('/update-status', {
+          residentID: residentID,
+          accountStatus: 'Approved'
+        })
+        // .then(function (response) {
+        //   console.log(response.data);
+        // })
+        .then(function (response) {
+        console.log(response.data);
+        if (response.data.redirect) {
+            window.location.href = response.data.redirect;
+        }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    </script> --}}
+
+    <script>
+    function approveRequest(residentID) {
+        // Find the row with the matching residentID
+        var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+      
+        // Update the accountStatus cell of the row to "Approved"
+        var accountStatusCell = row.querySelector("td:nth-child(7)");
+        accountStatusCell.textContent = "Approved";
+      
+        // Make an AJAX request to update the database
+        axios.post('/update-status', {
+          residentID: residentID,
+          accountStatus: 'Approved'
+          
+        })
+        .then(function (response) {
+            event.preventDefault();
+          console.log(response.data);
+          if (response.data.redirect) {
+            window.location.href = response.data.redirect;
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          event.preventDefault();
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+      }
+      
+    </script>
+
+    <script>
+        function rejectRequest(residentID) {
+        // Find the row with the matching residentID
+        var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+
+        // Make an AJAX request to delete the row from the database
+        axios.post('/delete-request', {
+            residentID: residentID
+        })
+        .then(function (response) {
+            console.log(response.data);
+            if (response.data.redirect) {
+            window.location.href = response.data.redirect;
+            }
+            // Remove the row from the table
+            row.remove();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        }
+    </script>
+
     <script>
         function toggleForm(){
          document.body.classList.toggle('activeForm');
@@ -353,7 +440,6 @@ body.activeForm .overlay-form {
         }
 
     </style>
-    
     
 
 </body>

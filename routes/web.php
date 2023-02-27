@@ -16,6 +16,7 @@ use App\Http\Controllers\customauthcontroller;
 use App\Http\Controllers\regrequestcontroller;
 use App\Http\Controllers\complaintsController;
 use App\Http\Controllers\viewdetailsController;
+use illuminate\support\Facades\DB;
 
 
 /*
@@ -103,7 +104,28 @@ Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'
 Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
 
 Route::get('request/{id}', [regrequestcontroller::class, 'viewRequestsRegisterFunc']);
-Route::POST('viewreq', [regrequestcontroller::class, 'editResidentFunc1']);
+Route::POST('viewreq', [regrequestcontroller::class, 'approveReqFunc']);
+
+
+// Route::post('/update-status', function(Request $request) {
+//     $residentID = $request->input('residentID');
+//     $accountStatus = $request->input('accountStatus');
+    
+//     // Update the database with the new accountStatus
+//     DB::table('residents')
+//         ->where('residentID', $residentID)
+//         ->update(['accountStatus' => $accountStatus]);
+        
+//     return 'Status updated successfully';
+// });
+
+Route::post('/update-status', [regrequestcontroller::class, 'updateStatus']);
+
+Route::post('/delete-request', [regrequestcontroller::class, 'deleteRequest']);
+
+
+
+
 
 
 // OVERRIDED

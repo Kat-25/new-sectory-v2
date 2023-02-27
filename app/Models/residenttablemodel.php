@@ -10,4 +10,5 @@ class residenttablemodel extends Model
     use HasFactory;
     protected $primaryKey = 'residentID';
     public $table = 'residents';
+    protected $fillable = ['residentStatus', 'accountStatus'];
 }

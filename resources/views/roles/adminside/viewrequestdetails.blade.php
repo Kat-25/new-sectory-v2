@@ -70,7 +70,8 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-                                <form action=""  method="POST">
+                                <form id="msform1" action="/viewreq" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="card-body">
                                         <div class="form-group">
                                             <div class="form-row">
@@ -79,6 +80,18 @@
                                                         {{-- {{ route('registrationdetails.show', ['id' => $data->id]) }} --}}
                                                     <div>
                                                         <h3>PERSONAL INFORMATION</h3>
+                                                        <div class="mb-2">
+                                                            {{-- <label class="form-label" for="householdidh">Household ID:</label> --}}
+                                                            <input class='form-control' type="hidden" name="residentidh" id='residentidh' value="{{$residents['residentID']}}">
+                                                        </div>
+                                                        <label for="fname">Account Status:</label>
+                                                        <input type="text" readonly class="form-control" name="accountStatus" value="{{$residents['accountStatus']}}">
+                                                        <label for="fname">Resident Status:</label>
+                                                        <input type="text" readonly class="form-control" name="residentStatus" value="{{$residents['residentStatus']}}">
+    
+                                                        <input type="hidden" name="newAccountStatus" id="newAccountStatus">
+
+
                                                          <label for="fname">First Name:</label>
                                                         <input type="text" readonly class="form-control" name="fname" value="{{$residents['firstName']}}">
                                                         <label for="inputEmail4">Last Name:</label>
@@ -156,12 +169,29 @@
                                                         <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>
                                                     
-                                                    <button type="submit" class="btn btn-primary" name="approve" id="approve">Approve</button>
-                                                    <button type="submit" class="btn btn-primary" name="reject" id="reject">Reject</button>
-                                                </div>   
+                                                    {{-- <button type="submit" class="btn btn-primary" name="status" value="Approved">Approve</button>
+                                                    <button type="submit" class="btn btn-primary" name="status" value="Rejected">Reject</button> --}}
+                                                    {{-- <button type="button" class="btn btn-primary" onclick="setAccountStatus('Approved')">Approve</button>
+                                                    <button type="button" class="btn btn-primary" onclick="setAccountStatus('Rejected')">Reject</button>
+                                                </div>    --}}
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                    <div class="row mx-auto justify-content-center">
+                                                      <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
+                                                        <button type="button" class="btn btn-primary btn-block border" onclick="window.history.back()">Back</button>
+                                                      </div>
+                                                      <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
+                                                        <button type="button" class="btn btn-primary btn-block border bg-success text-white" onclick="setAccountStatus('Approved')">Approve</button>
+                                                      </div>
+                                                      <div class="col-xs-2 col-sm-2 col-md-2">
+                                                        <button type="button" class="btn btn-primary btn-block border bg-danger text-white" onclick="setAccountStatus('Rejected')">Reject</button>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                  
+                                                  
                                                 {{-- @endforeach           --}}
                                             </div>
                                         </div>
@@ -190,9 +220,15 @@
 
 
     <!-- Custom scripts for all pages-->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> --}}
 
+    <script>
+        function setAccountStatus(status) {
+            document.getElementById("newAccountStatus").value = status;
+            document.getElementById("msform1").submit();
+        }
+    </script>
 </body>
 
 </html>

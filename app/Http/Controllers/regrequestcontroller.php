@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\residenttablemodel;
 use Illuminate\Http\Request;
 use App\Models\householdtablemodel;
+use Illuminate\Support\Facades\DB;
 
 class regrequestcontroller extends Controller
 {
@@ -72,6 +73,76 @@ class regrequestcontroller extends Controller
         return redirect('viewhousehold');
     }
 
+    public function approveReqFunc(Request $request) {
+        // Get the value of the "status" field from the form
+        $status = $request->input('status');
+        
+        // Get the value of the "newAccountStatus" field from the form
+        $newAccountStatus = $request->input('newAccountStatus');
+    
+        // Create an array of the fields to update
+        $fieldsToUpdate = [];
+    
+        // Set the "accountStatus" field based on the value of the "status" or "newAccountStatus" field
+        // if ($newAccountStatus) {
+        //     $fieldsToUpdate['accountStatus'] = $newAccountStatus;
+        // } else if ($status == 'Approved') {
+        //     $fieldsToUpdate['accountStatus'] = 'Approved';
+        // } else if ($status == 'Rejected') {
+        //     $fieldsToUpdate['accountStatus'] = 'Rejected';
+        // }
+        if ($newAccountStatus) {
+            $fieldsToUpdate['accountStatus'] = $newAccountStatus;
+            if ($newAccountStatus == 'Approved') {
+                $fieldsToUpdate['residentStatus'] = 'Active';
+            } else if ($newAccountStatus == 'Rejected') {
+                // Delete the record from the database if the "newAccountStatus" is "Rejected"
+                $residents = residenttablemodel::find($request->input('residentidh'));
+                $residents->delete();
+                return redirect('registration-requests');
+            }
+        }
+    
+        // Save the form data to the database or do other processing as needed
+        $residents = residenttablemodel::find($request->input('residentidh'));
+        $residents->update($fieldsToUpdate);
+    
+        // Redirect the user back to the form or to another page
+        return redirect('registration-requests');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $residentID = $request->input('residentID');
+        $accountStatus = $request->input('accountStatus');
+
+        DB::table('residents')
+        ->where('residentID', $residentID)
+        ->update([
+            'accountStatus' => $accountStatus,
+            'residentStatus' => 'Active'
+        ]);
+
+        // return response()->json([
+        //     'message' => 'Status updated successfully'
+        // ]);
+        return response()->json([
+            
+        ]);
+    }
+
+    public function deleteRequest(Request $request)
+    {
+    $residentID = $request->input('residentID');
+
+    DB::table('residents')
+        ->where('residentID', $residentID)
+        ->delete();
+
+    return response()->json([
+        
+    ]);
+    }
 
     // public function editComplaint($id){
     //     $complaint = Complaints::findOrFail($id);

@@ -17,6 +17,7 @@ use App\Http\Controllers\regrequestcontroller;
 use App\Http\Controllers\complaintsController;
 use App\Http\Controllers\viewdetailsController;
 use illuminate\support\Facades\DB;
+use App\Http\Controllers\documentcontroller;
 
 
 /*
@@ -156,6 +157,10 @@ Route::get('stafflist', [regrequestcontroller::class, 'displayStaffList'])->name
 //RESIDENT SIDE FUNCTION ROOTS
 Route::view('dashboard','roles.userside.resdashboard')->name('dashboard');
 
+//ROUTES FOR DOCUMENT MANAGEMENT
+Route::view('manageDocument', 'roles.adminside.manageDocument')->name('manageDocument');
+Route::get('/manageDocument', [documentcontroller::class, 'createForm']);
+Route::post('/manageDocument',[documentcontroller::class, 'fileUpload'])->name('fileUpload');
 
 
 

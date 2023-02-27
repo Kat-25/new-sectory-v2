@@ -7,6 +7,7 @@ use App\Models\document;
 
 class documentcontroller extends Controller
 {
+    
     public function createForm() {
         return view('roles.adminside.manageDocument');
     }

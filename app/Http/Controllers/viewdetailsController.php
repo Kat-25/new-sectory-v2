@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\viewdetailsController;
 use Illuminate\Http\Request;
 use App\Models\residenttablemodel;
 

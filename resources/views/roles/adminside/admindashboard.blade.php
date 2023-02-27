@@ -102,7 +102,7 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pendingAccCount}}</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pendingAccount}}</div>
                                                 </div>
                                                 
                                             </div>

@@ -151,6 +151,28 @@
                                                         <label for="inputEmail4">HOUSEHOLD NO.</label>
                                                         <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
+                                                    <p></p>
+                                                    <p></p>
+                                                    <div>
+                                                        <h3>EDUCATIONAL BACKGROUND</h3>
+                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
+                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
+                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
+                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
+                                                    </div>
+                                                    <div class="mt-4 mx-auto">
+                                                        <h3>RESIDENCE</h3>
+                                                        <label for="inputEmail4" class="mt-1">PERMANENT ADDRESS</label>
+                                                        <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
+                                                        <label for="inputEmail4">PRESENT ADDRESS</label>
+                                                        <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
+                                                        <label for="inputEmail4">CONTACT NUMBER</label>
+                                                        <input type="text" readonly class="form-control" name="number" value="{{$residents['contactNumber']}}">
+                                                        <label for="inputEmail4">HOUSEHOLD ID</label>
+                                                        <input type="text" readonly class="form-control" name="householdid" value="{{$residents['householdID']}}">
+                                                        <label for="inputEmail4">HOUSEHOLD NO.</label>
+                                                        <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
+                                                    </div>
                                                 </div>
                                                
                                                 <div class="form-group col-md-5 col-lg-5 ml-1 mx-auto order-sm-3">
@@ -175,7 +197,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5 mx-auto order-3 order-sm-3">
-                                                   
+
                                                 </div>
                                             {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>

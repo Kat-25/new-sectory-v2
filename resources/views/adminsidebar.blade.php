@@ -38,7 +38,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{route('addresident')}}">Add Resident</a>
                 <a class="collapse-item" href="{{route('residentlist')}}">Residents List</a>
-                <a class="collapse-item" href="{{route('registration-requests')}}">Registration Requests</a>
+                {{-- <a class="collapse-item" href="{{route('registration-requests')}}">Registration Requests</a> --}}
                 <a class="collapse-item" href="{{route('roles.adminside.listofcomplaints')}}">View Complaints</a>
             </div>
         </div>
@@ -78,6 +78,7 @@
             </div>
         </div>
     </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRequest"
             aria-expanded="true" aria-controls="collapseRequest">
@@ -99,6 +100,28 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Complaints</span></a>
     </li>
+
+
+    {{-- NAV ITEM REQUESTS COLLAPSE MENU --}}
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRequests"
+            aria-expanded="true" aria-controls="collapseRequests">
+            <i class="fas fa-users-cog"></i>
+            <span>Requests</span>
+        </a>
+        <div id="collapseRequests" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                <a class="collapse-item" href="{{route('addstaff')}}">Certificate Requests</a>
+                
+                <a class="collapse-item" href="{{route('registration-requests')}}">Registration Requests</a>
+            </div>
+        </div>
+        
+    </li>
+
+
     <!-- Nav Item - Document -->
     <li class="nav-item">
         <a class="nav-link" href="">

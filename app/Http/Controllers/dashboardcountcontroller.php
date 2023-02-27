@@ -14,8 +14,8 @@ class dashboardcountcontroller extends Controller
     {
         $residentCount = dashboardcountmodel::countActiveResidents();
         $houseCount = dashboardcounthouseholdmodel::countActiveHouseholds();$displayName = array();
-        $pendingAccCount = dashboardcountmodel::countPendingAccounts();
-        return view('roles.adminside.admindashboard', compact('residentCount','houseCount','pendingAccCount'));
+        $pendingAccount = dashboardcountmodel::countPendingAccounts();
+        return view('roles.adminside.admindashboard', compact('residentCount','houseCount','pendingAccount'));
         
     }
 }

@@ -16,7 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    
+    <link rel="stylesheet" href="">
     <!-- Custom styles for this template-->
     {{-- <link rel="stylesheet" href="{{ asset('css/sb_admin_2.min.css') }}"> --}}
 
@@ -127,7 +127,29 @@
                                                 <div class="form-group col-md-5 col-lg-5 mx-auto order-2 order-sm-1">
                                                     <h3>PROOF OF IDENTIFICATION</h3>
                                                     <div class="d-flex ">
-                                                        <img src="{{ asset($residents->proofID) }}" width= '500' height='500' class="img img-responsive" />
+                                                        <img src="{{ asset($residents->proofID) }}" width= '500' height='500' class="img img-responsive expand-image" onclick="expandImage()"/>
+                                                    </div>
+                                                    <div class="mt-5">
+                                                        <h3>EDUCATIONAL BACKGROUND</h3>
+                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
+                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
+                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
+                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
+                                                    </div>
+
+                          
+                                                    <div class="mt-5 mx-auto">
+                                                        <h3>RESIDENCE</h3>
+                                                        <label for="inputEmail4" class="mt-1">PERMANENT ADDRESS</label>
+                                                        <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
+                                                        <label for="inputEmail4">PRESENT ADDRESS</label>
+                                                        <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
+                                                        <label for="inputEmail4">CONTACT NUMBER</label>
+                                                        <input type="text" readonly class="form-control" name="number" value="{{$residents['contactNumber']}}">
+                                                        <label for="inputEmail4">HOUSEHOLD ID</label>
+                                                        <input type="text" readonly class="form-control" name="householdid" value="{{$residents['householdID']}}">
+                                                        <label for="inputEmail4">HOUSEHOLD NO.</label>
+                                                        <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
                                                     <p></p>
                                                     <p></p>
@@ -175,28 +197,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5 mx-auto order-3 order-sm-3">
-                                                    {{-- <div>
-                                                        <h3>EDUCATIONAL BACKGROUND</h3>
-                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
-                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
-                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
-                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
-                                                    </div> --}}
 
-                          
-                                                    {{-- <div class="mt-4 mx-auto">
-                                                        <h3>RESIDENCE</h3>
-                                                        <label for="inputEmail4" class="mt-1">PERMANENT ADDRESS</label>
-                                                        <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
-                                                        <label for="inputEmail4">PRESENT ADDRESS</label>
-                                                        <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
-                                                        <label for="inputEmail4">CONTACT NUMBER</label>
-                                                        <input type="text" readonly class="form-control" name="number" value="{{$residents['contactNumber']}}">
-                                                        <label for="inputEmail4">HOUSEHOLD ID</label>
-                                                        <input type="text" readonly class="form-control" name="householdid" value="{{$residents['householdID']}}">
-                                                        <label for="inputEmail4">HOUSEHOLD NO.</label>
-                                                        <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
-                                                    </div> --}}
                                                 </div>
                                             {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>
@@ -264,7 +265,7 @@
             document.getElementById("newAccountStatus").value = status;
             document.getElementById("msform1").submit();
         }
-    </script>
+    </script> 
 </body>
 
 </html>

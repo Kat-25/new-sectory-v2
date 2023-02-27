@@ -16,11 +16,11 @@
                     <div class="form-row">
                     <div class="form-group col col-sm-3 col-md-6 col-lg-12">
                         <label for="complainant">Complainant</label>
-                        <input type="email" class="form-control" id="">
+                        <input type="text" class="form-control" value="">
                     </div>
                     <div class="col col-sm-3 col-md-6 col-lg-12">
                         <label for="date">Date</label>
-                        <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        <input type="text" />
                     </div>
                     <div class="col-sm-3 col-lg-12">
                         <div class="form-group mt-2">

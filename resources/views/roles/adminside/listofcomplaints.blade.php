@@ -98,15 +98,14 @@
                                                     <span class="text">View</span>
                                                 </a>
                                                 
-                                                @include('viewcomplaintdetails')
-
+                                                
                                                 <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3"data-toggle="modal" data-target="#exampleModal1">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
-                                                @include('editcomplaintsmodal')
+                                                
                                                 
                                                 <form action="{{ route('deletecomplaint', $item->id) }}" method="POST">
                                                     @csrf
@@ -148,9 +147,11 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+    @include('editcomplaintsmodal')
+    @include('viewcomplaintdetails')
     <!-- Logout Modal-->
     @include('adminlogout')
+
 
     <!-- Bootstrap core JavaScript-->
     {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

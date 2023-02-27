@@ -89,7 +89,7 @@
                                             <td>
                                                 <img src="{{ asset($request->proofID) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
-                                            <td class="d-flex justify-content-center">
+                                            <td class="justify-content-center">
                                                 <div class="row no-gutters">
                                                   <div class="col-4">
                                                     <a href="{{"request/".$request['residentID']}}" class="btn btn-success btn-icon-split btn-block">

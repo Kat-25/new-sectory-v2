@@ -20,7 +20,7 @@
 
     <!-- Custom styles for this template-->
     {{-- <link rel="stylesheet" href="{{ asset('css/sb_admin_2.min.css') }}"> --}}
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
 </head>
 
 <body id="page-top">

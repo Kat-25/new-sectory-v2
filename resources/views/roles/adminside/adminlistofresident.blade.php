@@ -83,8 +83,7 @@
                                             <td>{{ $request->birthPlace }}</td>
                                             <td>{{ $request->householdNo}}</td>
                                             <td class="align-middle text-center">
-                                                <img src="{{ asset($request->proofID) }}" width="50" height="50" class="img img-responsive" />
-                                              </td>
+                                                <img src="{{ asset($request->proofID) }}" width="50" height="50" class="img img-responsive expand-image" onclick="expandImage()" />                                   
                                               <td class="align-middle">
                                                 <div class="d-flex justify-content-center">
                                                   <a href="{{"viewresident/".$request['residentID']}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View" style="background-color: #20c9a6; color: #ffffff;">

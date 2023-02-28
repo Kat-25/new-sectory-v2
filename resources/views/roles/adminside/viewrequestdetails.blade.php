@@ -55,19 +55,52 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Request Details</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">:</div>
-                                            <a class="dropdown-item" href="#">CANCEL</a>
-                                            <a class="dropdown-item" href="#"></a>
+                                    <h6 class="m-0 font-weight-bold text-primary">REQUEST DETAILS</h6>
+                                    <div class="">
+                                        <div class="row mx-auto justify-content-center">
+                                          <div class="">
+                                            <button type="button" class="btn button btn-icon-split d-flex align-items-center justify-content-center" style="background-color: #4173c4; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Back" onclick="window.history.back()"><span class="icon text-white-100">
+                                                <i class="fas fa-arrow-left"></i>
+                                              </span></button>
+                                          </div>
+                                          <div class="">
+                                            <button type="button" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Approved')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve"><span class="icon text-white-50">
+                                                <i class="fas fa-check"></i>
+                                              </span></button>
+                                          </div>
+                                          <div class="">
+                                            <button type="button" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Rejected')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"><span class="icon text-center text-white-50">
+                                                <i class="fas fa-ban"></i>
+                                              </span></button>
+                                          </div>
+                                          {{-- <div class="dropdown no-arrow d-flex flex-row align-items-center justify-content-between">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">:</div>
+                                                <a class="dropdown-item" href="{{route('registration-requests')}}">Back</a>
+                                                
+                                            </div>
+                                        </div> --}}
                                         </div>
                                     </div>
+                                    
+                                        {{-- <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">:</div>
+                                                <a class="dropdown-item" href="{{route('registration-requests')}}">Back</a>
+                                                
+                                            </div>
+                                        </div> --}}
+                                    
                                 </div>
                                 <!-- Card Body -->
                                 <form id="msform1" action="/viewreq" method="POST" enctype="multipart/form-data">
@@ -126,9 +159,10 @@
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5 mx-auto order-2 order-sm-1">
                                                     <h3>PROOF OF IDENTIFICATION</h3>
-                                                    <div class="d-flex ">
-                                                        <img src="{{ asset($residents->proofID) }}" width= '500' height='500' class="img img-responsive expand-image" onclick="expandImage()"/>
-                                                    </div>
+                                                    
+                                                    <div class="d-flex">
+                                                        <img src="{{ asset($residents->proofID) }}" width="100%" height="300px" class="img img-responsive expand-image" onclick="expandImage()"/>
+                                                      </div>
                                                     
                                                     <p></p>
                                                     <p></p>
@@ -186,19 +220,25 @@
                                                     {{-- <button type="button" class="btn btn-primary" onclick="setAccountStatus('Approved')">Approve</button>
                                                     <button type="button" class="btn btn-primary" onclick="setAccountStatus('Rejected')">Reject</button>
                                                 </div>    --}}
-                                                <div class="col-xs-12 col-sm-12 col-md-12 text-center order-lg-4 order-4">
+                                                {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center order-lg-4 order-4">
                                                     <div class="row mx-auto justify-content-center">
-                                                      <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
-                                                        <button type="button" class="btn btn-primary btn-block border" onclick="window.history.back()">Back</button>
+                                                      <div class="">
+                                                        <button type="button" class="btn button btn-icon-split d-flex align-items-center justify-content-center" style="background-color: #5f7a74; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="View" onclick="window.history.back()"><span class="icon text-white-100">
+                                                            <i class="fas fa-eye"></i>
+                                                          </span></button>
                                                       </div>
-                                                      <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
-                                                        <button type="button" class="btn btn-primary btn-block border bg-success text-white" onclick="setAccountStatus('Approved')">Approve</button>
+                                                      <div class="">
+                                                        <button type="button" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Approved')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve"><span class="icon text-white-50">
+                                                            <i class="fas fa-check"></i>
+                                                          </span></button>
                                                       </div>
-                                                      <div class="col-xs-2 col-sm-2 col-md-2">
-                                                        <button type="button" class="btn btn-primary btn-block border bg-danger text-white" onclick="setAccountStatus('Rejected')">Reject</button>
+                                                      <div class="">
+                                                        <button type="button" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Rejected')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"><span class="icon text-center text-white-50">
+                                                            <i class="fas fa-ban"></i>
+                                                          </span></button>
                                                       </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center order-4">
                                                     <button type="submit" class="btn btn-primary">Back</button>
                                                     <button type="submit" class="btn btn-primary" name="approve" id="approve">Approve</button>
@@ -235,7 +275,11 @@
     <!-- Custom scripts for all pages-->
     {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> --}}
-
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     <script>
         function setAccountStatus(status) {
             document.getElementById("newAccountStatus").value = status;

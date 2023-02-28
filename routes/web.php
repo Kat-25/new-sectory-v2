@@ -103,8 +103,16 @@ Route::view('reg', 'auth.register');
 //ROUTE DISPLAY FOR REGISTRATION REQUESTS
 Route::get('/registration-requests', [regrequestcontroller::class, 'displayData'])->name('registration-requests');
 Route::view('/registration-requests/details', 'roles.adminside.viewrequestdetails')->name('requestdetails');
+
+
+
 Route::get('request/{id}', [regrequestcontroller::class, 'viewRequestsRegisterFunc']);
 Route::POST('viewreq', [regrequestcontroller::class, 'approveReqFunc']);
+
+
+Route::get('viewresident/{id}', [regrequestcontroller::class, 'viewResidentsFunc']);
+Route::POST('viewres', [regrequestcontroller::class, 'approveReqFunc']);
+
 
 
 // Route::post('/update-status', function(Request $request) {

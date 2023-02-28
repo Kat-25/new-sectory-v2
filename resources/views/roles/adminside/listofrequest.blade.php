@@ -86,37 +86,36 @@
                                             <td>{{ $request->userAge }}</td>
                                             <td>{{ $request->accountStatus }}</td>
             
-                                            <td>
-                                                <img src="{{ asset($request->proofID) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
+                                            
+                                            
+                                            <td class="align-middle text-center" style="width: 50px;">
+                                              <img src="{{ asset($request->proofID) }}" width="50" height="50" class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
-                                            <td class="justify-content-center">
-                                                <div class="row no-gutters">
-                                                  <div class="col-4">
-                                                    <a href="{{"request/".$request['residentID']}}" class="btn btn-success btn-icon-split btn-block">
-                                                      <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
-                                                      </span>
-                                                      <span class="text">View</span>
-                                                    </a>
-                                                  </div>
-                                                  <div class="col-4">
-                                                    <a href="" class="btn btn-primary btn-icon-split btn-block" id="approveBtn" onclick="approveRequest('{{ $request->residentID }}')">
-                                                      <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
-                                                      </span>
-                                                      <span class="text">Approve</span>
-                                                    </a>
-                                                  </div>
-                                                  <div class="col-4">
-                                                    <a href="" class="btn btn-danger btn-icon-split btn-block" onclick="rejectRequest('{{ $request->residentID }}')">
-                                                      <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
-                                                      </span>
-                                                      <span class="text">Reject</span>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                              </td>
+                                            <td class="align-middle" style="width: calc(100% - 50px);">
+                                              <div class="d-flex justify-content-center">
+                                                <a href="{{"request/".$request['residentID']}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" style="background-color: #5f7a74; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="View">
+                                                  <span class="icon text-white-100">
+                                                    <i class="fas fa-eye"></i>
+                                                  </span>
+                                                  {{-- <span class="text">View</span> --}}
+                                                </a>
+                                                <a href="" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" id="approveBtn" onclick="approveRequest('{{ $request->residentID }}')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                  <span class="icon text-white-50">
+                                                    <i class="fas fa-check"></i>
+                                                  </span>
+                                                  {{-- <span class="text">Approve</span> --}}
+                                                </a>
+                                                <a href="" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="rejectRequest('{{ $request->residentID }}')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"> 
+                                                  <span class="icon text-center text-white-50">
+                                                    <i class="fas fa-ban"></i>
+                                                  </span>
+                                                  {{-- <span class="text">Reject</span> --}}
+                                                </a>
+                                              </div>
+                                            </td>
+                                            
+                                            
+                                            
                                               
                                         </tr>
                                           {{-- <div class="center">
@@ -271,6 +270,12 @@
             console.log(error);
         });
         }
+    </script>
+
+    <script>
+      $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+      })
     </script>
 
     <script>
@@ -439,6 +444,7 @@ body.activeForm .overlay-form {
         object-fit: contain;
         }
 
+        
     </style>
     
 

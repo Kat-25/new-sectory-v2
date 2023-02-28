@@ -51,11 +51,17 @@ class regrequestcontroller extends Controller
         return view('roles.adminside.viewrequestdetails', ['data' => $data]);
     }
 
-
+    //REQUESTS VIEW
     public function viewRequestsRegisterFunc($id)
     {
         $data = residenttablemodel::find($id);
         return view('roles.adminside.viewrequestdetails', ['residents' => $data]);
+    }
+    //RESIDENTS VIEW
+    public function viewResidentsFunc($id)
+    {
+        $data = residenttablemodel::find($id);
+        return view('roles.adminside.viewresidentdetails', ['residents' => $data]);
     }
 
     function viewRequestsResidentFunc(Request $req){

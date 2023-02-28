@@ -16,7 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    
+    <link rel="stylesheet" href="">
     <!-- Custom styles for this template-->
     {{-- <link rel="stylesheet" href="{{ asset('css/sb_admin_2.min.css') }}"> --}}
 
@@ -55,7 +55,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Request Details</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">RESIDENT DETAILS</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,8 +64,8 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">:</div>
-                                            <a class="dropdown-item" href="#">CANCEL</a>
-                                            <a class="dropdown-item" href="#"></a>
+                                            <a class="dropdown-item" href="{{route('residentlist')}}">Back</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -126,12 +126,38 @@
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5 mx-auto order-2 order-sm-1">
                                                     <h3>PROOF OF IDENTIFICATION</h3>
-                                                    <div class="d-flex ">
-                                                        <img src="{{ asset($residents->proofID) }}" width= '500' height='500' class="img img-responsive" />
+                                                    <br>
+                                                    <div class="d-flex">
+                                                        <img src="{{ asset($residents->proofID) }}" width="100%" class="img img-responsive expand-image" onclick="expandImage()"/>
+                                                      </div>
+                                                    <p></p>
+                                                    <p></p>
+                                                    <p></p>
+                                                    <p></p>
+                                                    <p></p>
+                                                    <div>
+                                                        <h3>EDUCATIONAL BACKGROUND</h3>
+                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
+                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
+                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
+                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
+                                                    </div>
+                                                    <div class="mt-4 mx-auto">
+                                                        <h3>RESIDENCE</h3>
+                                                        <label for="inputEmail4" class="mt-1">PERMANENT ADDRESS</label>
+                                                        <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
+                                                        <label for="inputEmail4">PRESENT ADDRESS</label>
+                                                        <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
+                                                        <label for="inputEmail4">CONTACT NUMBER</label>
+                                                        <input type="text" readonly class="form-control" name="number" value="{{$residents['contactNumber']}}">
+                                                        <label for="inputEmail4">HOUSEHOLD ID</label>
+                                                        <input type="text" readonly class="form-control" name="householdid" value="{{$residents['householdID']}}">
+                                                        <label for="inputEmail4">HOUSEHOLD NO.</label>
+                                                        <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
                                                     </div>
                                                 </div>
-                                               
-                                                <div class="form-group col-md-5 col-lg-5 ml-1 mx-auto order-sm-3">
+                                                
+                                               <div class="form-group col-md-5 col-lg-5 ml-1 mx-auto order-sm-3"> 
                                                     <div>
                                                         <h3>FAMILY BACKGROUND</h3>
                                                         <label for="inputEmail4">FATHER'S FIRST NAME:</label>
@@ -153,28 +179,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-5 col-lg-5 mx-auto order-3 order-sm-3">
-                                                    <div>
-                                                        <h3>EDUCATIONAL BACKGROUND</h3>
-                                                            <label for="inputEmail4">INSTITUTION GRADUATED:</label>
-                                                            <input type="text" readonly class="form-control" name="school" value="{{$residents['userSchool']}}" >
-                                                            <label for="inputEmail4">EDUCATIONAL ATTAINMENT:</label>
-                                                            <input type="text" readonly class="form-control" name="education" value="{{$residents['userEducation']}}">
-                                                    </div>
 
-                          
-                                                    <div class="mt-4 mx-auto">
-                                                        <h3>RESIDENCE</h3>
-                                                        <label for="inputEmail4" class="mt-1">PERMANENT ADDRESS</label>
-                                                        <input type="text" readonly class="form-control" name="permanent" value="{{$residents['permanentAddress']}}">
-                                                        <label for="inputEmail4">PRESENT ADDRESS</label>
-                                                        <input type="text" readonly class="form-control" name="present" value="{{$residents['presentAddress']}}">
-                                                        <label for="inputEmail4">CONTACT NUMBER</label>
-                                                        <input type="text" readonly class="form-control" name="number" value="{{$residents['contactNumber']}}">
-                                                        <label for="inputEmail4">HOUSEHOLD ID</label>
-                                                        <input type="text" readonly class="form-control" name="householdid" value="{{$residents['householdID']}}">
-                                                        <label for="inputEmail4">HOUSEHOLD NO.</label>
-                                                        <input type="text" readonly class="form-control" name="householdno" value="{{$residents['householdNo']}}">
-                                                    </div>
                                                 </div>
                                             {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                     <button type="submit" class="btn btn-primary">Back</button>
@@ -189,17 +194,9 @@
                                                       <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
                                                         <button type="button" class="btn btn-primary btn-block border" onclick="window.history.back()">Back</button>
                                                       </div>
-                                                      <div class="col-xs-2 col-sm-2 col-md-2 mr-n3 mb-md-0">
-                                                        <button type="button" class="btn btn-primary btn-block border bg-success text-white" onclick="setAccountStatus('Approved')">Approve</button>
-                                                      </div>
-                                                      <div class="col-xs-2 col-sm-2 col-md-2">
-                                                        <button type="button" class="btn btn-primary btn-block border bg-danger text-white" onclick="setAccountStatus('Rejected')">Reject</button>
-                                                      </div>
+                                                      
                                                     </div>
                                                 </div>
-                                                  
-                                                  
-
                                                 {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center order-4">
                                                     <button type="submit" class="btn btn-primary">Back</button>
                                                     <button type="submit" class="btn btn-primary" name="approve" id="approve">Approve</button>
@@ -230,7 +227,7 @@
 
     <!-- Logout Modal-->
    @include('adminlogout')
-    
+
 
 
     <!-- Custom scripts for all pages-->
@@ -242,7 +239,7 @@
             document.getElementById("newAccountStatus").value = status;
             document.getElementById("msform1").submit();
         }
-    </script>
+    </script> 
 </body>
 
 </html>

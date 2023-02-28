@@ -82,29 +82,32 @@
                                             <td>{{ $request->userAge }}</td>
                                             <td>{{ $request->birthPlace }}</td>
                                             <td>{{ $request->householdNo}}</td>
-                                            <td>
-                                                <img src="{{ asset($request->proofID) }}" width= '50' height='50' class="img img-responsive" />
-                                            </td>
-
-                                            <td class="d-flex justify-content-center"><a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-success btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-eye"></i>
-                                                </span>
-                                                <span class="text">View</span>
-                                            </a>
-                                            <a href="{{"updateres/".$request['residentID']}}" class="btn btn-primary btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
-                                                <span class="text">Edit</span>
-                                            </a>
-                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-danger btn-icon-split">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
-                                                </span>
-                                                <span class="text">Archive</span>
-                                            </a>
-                                             </td>
+                                            <td class="align-middle text-center">
+                                                <img src="{{ asset($request->proofID) }}" width="50" height="50" class="img img-responsive" />
+                                              </td>
+                                              <td class="align-middle">
+                                                <div class="d-flex justify-content-center">
+                                                  <a href="{{"viewresident/".$request['residentID']}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View" style="background-color: #20c9a6; color: #ffffff;">
+                                                    <span class="icon text-white-50">
+                                                      <i class="fas fa-eye"></i>
+                                                    </span>
+                                                    {{-- <span class="text">View</span> --}}
+                                                  </a>
+                                                  <a href="{{"updateres/".$request['residentID']}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Edit" style="background-color: #3cbfb3; color: #ffffff; width:42px;">
+                                                    <span class="icon text-white-50">
+                                                      <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    {{-- <span class="text">Edit</span> --}}
+                                                  </a>
+                                                  <a href="" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Deactivate" style="background-color: #343a40; color: #f2f2f2; width:42px;">
+                                                    <span class="icon text-white-50">
+                                                      <i class="fas fa-user-times"></i>
+                                                    </span>
+                                                    {{-- <span class="text">Deactivate</span> --}}
+                                                  </a>
+                                                </div>
+                                              </td>
+                                              
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -152,6 +155,11 @@
         </div>
     </div>
 
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

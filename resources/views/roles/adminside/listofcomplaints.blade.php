@@ -88,38 +88,38 @@
                                             <td>
                                                 <img src="{{ asset($item->evidence) }}" width= '50' height='50' class="img img-responsive expand-image" onclick="expandImage()" />
                                             </td>
-                                             {{-- image src, di pa modisplay sa table --}}
-                                             <td class="d-flex justify-content-center">
+                                             <td class="align-middle" style="width: calc(100% - 50px);">
+                                                <div class="d-flex justify-content-center">
                                                 <!-- Button trigger modal -->
-                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#viewcomplaintdetails">
-                                                    <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
-                                                    </span>
-                                                    <span class="text">View</span>
+                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split " data-toggle="modal" data-target="#viewcomplaintdetails">
+                                                    <span class="icon text-white-100">
+                                                        <i class="fas fa-eye"></i>
+                                                      </span>
                                                 </a>
-                                                <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split ml-3"data-toggle="modal" data-target="#exampleModal1">
-                                                    <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
-                                                    </span>
-                                                    <span class="text">Edit</span>
+                                                <a href="{{route('complaints.update', $item->id) }}" class="btn btn-primary btn-icon-split"data-toggle="modal" data-target="#exampleModal1">
+                                                    <span class="icon text-white-100">
+                                                        <i class="fas fa-check"></i>
+                                                      </span>
                                                 </a>
-                                               
-                                                
                                                 <form action="{{ route('deletecomplaint', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')  
-                                                    <button type="submit" class="btn btn-danger" class="btn btn-danger btn-icon-split btn-icon-split ml-3" title="Delete" id="delete">
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-flag"></i>
-                                                        </span>   Delete
+                                                    <button type="submit" class="btn btn-danger" class="btn btn-danger btn-icon-split btn-icon-split " title="Delete" id="delete">
+                                                        <span class="icon text-center text-white-100">
+                                                            <i class="fas fa-ban"></i>
+                                                          </span>
                                                     </button>
                             
                                                 </form>
+                                                
+                                                    {{-- <span class="text">Reject</span> --}}
+                                                  </a>
                                                 {{-- <a action="{{ route('deletecomplaint', $item->id) }}" class="btn btn-danger btn-icon-split btn-icon-split ml-3" title="Delete" id="delete">
                                                     
                                                     <span class="text">Delete</span>
                                                 </a> --}}
-                                                </td>
+                                                </div>
+                                            </td>
                                                 
                                         </tr>
                                         

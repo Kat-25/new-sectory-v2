@@ -10,13 +10,15 @@
                 </button>
             </div>
             <div class="modal-body">
+            <form action="viewData{{ $complaints[0]->id}}" method="POST">
+                @csrf
             <div class="card-body">
                                     
                 <div class="form-group">
                     <div class="form-row">
                     <div class="form-group col col-sm-3 col-md-6 col-lg-12">
                         <label for="complainant">Complainant</label>
-                        <input type="text" class="form-control" value="">
+                        <input type="text" class="form-control" value={{ $complaints[0]->complainant}} readonly>
                     </div>
                     <div class="col col-sm-3 col-md-6 col-lg-12">
                         <label for="date">Date</label>
@@ -25,7 +27,7 @@
                     <div class="col-sm-3 col-lg-12">
                         <div class="form-group mt-2">
                             <strong>Time:</strong>
-                            <input type="time" name="time" class="form-control">
+                            <input type="text" name="time" class="form-control" value={{ $complaints[0]->timeOfIncident}} readonly>
                         </div>
                     </div>
                     <div class="form-group col-md-3 col-lg-12 mx-auto">

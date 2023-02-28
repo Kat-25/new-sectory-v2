@@ -166,9 +166,13 @@ Route::get('stafflist', [regrequestcontroller::class, 'displayStaffList'])->name
 Route::view('dashboard','roles.userside.resdashboard')->name('dashboard');
 
 //ROUTES FOR DOCUMENT MANAGEMENT
-Route::view('manageDocument', 'roles.adminside.manageDocument')->name('manageDocument');
-Route::get('/manageDocument', [documentcontroller::class, 'createForm']);
-Route::post('/manageDocument',[documentcontroller::class, 'fileUpload'])->name('fileUpload');
+Route::get('/documents', [DocumentController::class, 'index'])->name('roles.adminside.documentIndex');
+Route::get('/documents/create', [DocumentController::class, 'create'])->name('documents.create');
+Route::post('/documents', [DocumentController::class, 'store'])->name('documents.store');
+Route::get('/documents/{document}', [DocumentController::class, 'download'])->name('documents.download');
+Route::post('/documents/{document}/archive', [DocumentController::class, 'archive'])->name('documents.archive');
+Route::post('/documents/{document}/unarchive', [DocumentController::class, 'unarchive'])->name('documents.unarchive');
+Route::delete('/documents/{document}', [DocumentController::class, 'delete'])->name('documents.delete');
 
 
 

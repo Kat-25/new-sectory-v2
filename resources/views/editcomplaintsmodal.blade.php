@@ -9,8 +9,8 @@
                 </button>
             </div>
         <div class="modal-body">
-            {{-- {{ route('complaints.update', $complaints->id) }} --}}
-        <form action="{{ route('complaints.edit') }}" method="POST">
+
+        <form action="{{route('complaints.update')}}" method="POST">
             @csrf
         <div class="card-body">                   
             <div class="form-group">
@@ -18,32 +18,24 @@
                     {{-- <input type="hidden" name="_method" value="PUT"> --}}
                     <div class="form-group col col-sm-3 col-md-8 col-lg-12">
                         <label for="complainant">Complainant</label>
-                        <input type="text" class="form-control" id="">
+                        <input type="text" class="form-control" name="name" id="" value={{ $complaint->complainant ?? '' }}>
                     </div>
                     <div class="col col-sm-3 col-md-8 col-lg-12">
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                        <label for="date">Date</label> 
+                        <input type="date" class="form-control datetimepicker-input" name="date" data-target="#datetimepicker1" value={{ $complaint->dateOfIncident ?? '' }} />
                     </div>
                     <div class="col col-sm-3 col-md-8 col-lg-12">
                         <div class="form-group mt-2">
                         <strong>Time:</strong>
-                        <input type="time" name="time" class="form-control">
+                        <input type="time" name="time" class="form-control" name="time" value={{ $complaint->timeOfIncident ?? '' }}>
                     </div>
                 </div>
-                <div class="form-group col col-sm-3 col-md-8 col-lg-12 mx-auto">
-                    <label for="text">Type:</label>
-                    <select id="type" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>high</option>
-                        <option>mid</option>
-                        <option>low</option>
-                    </select>
-                </div>
+            
             </div>
                 <div class="form-row">
                     <div class="form-group col col-sm-3 col-md-8 col-lg-12">
                     <label for="complaint-title">Title</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" class="form-control" id="" name="title" value={{ $complaint->title ?? ''}}>
                     </div>
                                         
                     <div class="col col-sm-3 col-md-8 col-lg-12">
@@ -55,7 +47,7 @@
                             <h4>Uploaded Evidence</h4>
                             <div class="radio-group"></div>
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="evidence"value={{ $complaint->evidence ?? '' }}>
                                 </div> 
                             </div>
                         </div>

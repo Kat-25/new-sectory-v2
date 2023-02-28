@@ -96,7 +96,7 @@
     </li>
     <!-- Nav Item - Complaints -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('roles.adminside.listofcomplaints')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Complaints</span></a>
     </li>

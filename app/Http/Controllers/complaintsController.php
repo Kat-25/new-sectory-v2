@@ -43,10 +43,13 @@ class complaintsController extends Controller
     }
 
     public function editComplaint($id){
-        $data = Complaints::findOrFail($id);
+        // $data = Complaints::findOrFail($id);
         // $complaint = Complaints::all();
-        return view('editcomplaintsmodal', ['complaints' => $data]);
-      
+        // return view('editcomplaintsmodal', ['complaints' => $data]);
+        $data = Complaints::find($id);
+        // $complaint = Complaints::where('id', $id)->get();
+        // // return $complaint;
+        return view('editcomplaintsmodal', ['complaint'=>$data]);
 
     }
     public function updateComplaints(Request $request)
@@ -78,7 +81,6 @@ class complaintsController extends Controller
     public function destroy($id)
     {
         $complaint = Complaints::find($id);
-
         if ($complaint) {
             $complaint->delete();
             return redirect()->route('roles.adminside.listofcomplaints')
@@ -93,6 +95,19 @@ class complaintsController extends Controller
         $data = Complaints::find($id);
         return view('viewcomplaintdetails', ['complaints' => $data]);
     }
+    
+    // public function editComplaintFunc (Request $request)
+    // {
+    //     $update = [
+    //         'name' => $request->complainant,
+    //         'time' => $request->timeOfIncident,
+    //         'date' => $request->dateOfIncident,
+    //         'details' => $request->details,
+    //     ]
+
+    //     Complaints::table('complaints_table')->where('id', $request->id)->update($update);
+    //     return redirect()->back()->with('success', 'Updated Complaint Succesfully!');
+    // }
     
 
 }

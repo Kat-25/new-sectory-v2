@@ -91,9 +91,9 @@
                 </div>
             </div>
         </div>
+        @include('addDocumentmodal')
+        @include('viewDocumentModal')
     </div>
-    @include('addDocumentmodal')
-    @include('viewDocumentModal')
     @section('scripts')
     <script>
         $(document).ready(function() {

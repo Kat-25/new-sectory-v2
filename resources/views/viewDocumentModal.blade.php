@@ -17,5 +17,3 @@
     </div>
   </div>
 </div>
-
-<a href="{{ route('documents.modal', $document) }}" class="btn btn-sm btn-info" title="View" data-toggle="modal" data-target="#viewDocumentModal"><i class="fas fa-eye"></i></a>

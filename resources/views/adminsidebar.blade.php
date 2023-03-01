@@ -79,14 +79,6 @@
         </div>
     </li>
 
-    <!-- Nav Item - Complaints -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('roles.adminside.listofcomplaints')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Complaints</span></a>
-    </li>
-
-
     {{-- NAV ITEM REQUESTS COLLAPSE MENU --}}
 
     <li class="nav-item">
@@ -106,11 +98,17 @@
         
     </li>
 
+    <!-- Nav Item - Complaints -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('roles.adminside.listofcomplaints')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Complaints</span></a>
+    </li>
 
     <!-- Nav Item - Document -->
     <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+        <a class="nav-link" href="{{route('roles.adminside.documentIndex')}}">
+            <i class="fas fa-fw fa-file"></i>
             <span>Documents</span></a>
     </li>
 

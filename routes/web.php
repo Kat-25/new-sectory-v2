@@ -173,6 +173,8 @@ Route::get('/documents/{document}', [DocumentController::class, 'download'])->na
 Route::post('/documents/{document}/archive', [DocumentController::class, 'archive'])->name('documents.archive');
 Route::post('/documents/{document}/unarchive', [DocumentController::class, 'unarchive'])->name('documents.unarchive');
 Route::delete('/documents/{document}', [DocumentController::class, 'delete'])->name('documents.delete');
+Route::get('/documents/{document}/modal', [DocumentController::class, 'modal'])->name('documents.modal');
+
 
 
 

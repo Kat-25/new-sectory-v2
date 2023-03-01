@@ -22,7 +22,7 @@ class DocumentController extends Controller
     {
         $document = new Document();
         $document->storeFile($request->file('file'));
-        return redirect()->route('documents.index');
+        return redirect()->route('roles.adminside.documentIndex');
     }
 
     public function download(Document $document)
@@ -33,18 +33,22 @@ class DocumentController extends Controller
     public function archive(Document $document)
     {
         $document->archive();
-        return redirect()->route('documents.index');
+        return redirect()->route('roles.adminside.documentIndex');
     }
 
     public function unarchive(Document $document)
     {
         $document->unarchive();
-        return redirect()->route('documents.index');
+        return redirect()->route('roles.adminside.documentIndex');
     }
 
     public function delete(Document $document)
     {
         $document->deleteFile();
-        return redirect()->route('documents.index');
+        return redirect()->route('roles.adminside.documentIndex');
+    }
+    public function modal(Document $document)
+    {
+        return view('viewDocumentModal', compact('document'));
     }
 }

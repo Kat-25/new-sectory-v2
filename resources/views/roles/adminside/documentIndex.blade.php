@@ -38,7 +38,7 @@
                     </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                    <div class="card-header py-3">
+                        <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"></h6>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDocumentModal">
                                Add Document
@@ -49,31 +49,36 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>ID</th>
+                                            <th>Document Name</th>
+                                            <th>Uploaded on</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($documents as $document)
                                             <tr>
+                                                <td>{{ $document->id }}</td>
                                                 <td>{{ $document->name }}</td>
+                                                <td>{{ $document->created_at }}</td>
                                                 <td>
-                                                    <a href="{{ route('documents.download', $document) }}">Download</a>
+                                                    <a href="{{ route('documents.modal', $document) }}" class="btn btn-sm btn-info" data-toggle="modal" data-target="#viewDocumentModal" title="View"><i class="fa fa-eye"></i></a>
+                                                    <a href="{{ route('documents.download', $document) }}" class="btn btn-sm btn-primary" title="Download"><i class="fas fa-download"></i></a>
                                                     @if (!$document->is_archived)
-                                                        <form action="{{ route('documents.archive', $document) }}" method="POST">
+                                                        <form action="{{ route('documents.archive', $document) }}" method="POST" class="d-inline">
                                                             @csrf
-                                                            <button type="submit">Archive</button>
+                                                            <button type="submit" class="btn btn-sm btn-danger" title="Archive"><i class="fas fa-archive"></i></button>
                                                         </form>
                                                     @else
-                                                        <form action="{{ route('documents.unarchive', $document) }}" method="POST">
+                                                        <form action="{{ route('documents.unarchive', $document) }}" method="POST" class="d-inline">
                                                             @csrf
-                                                            <button type="submit">Unarchive</button>
+                                                            <button type="submit" class="btn btn-sm btn-secondary" title="Unarchive"><i class="fas fa-archive"></i></button>
                                                         </form>
                                                     @endif
-                                                    <form action="{{ route('documents.delete', $document) }}" method="POST">
+                                                    <form action="{{ route('documents.delete', $document) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit">Delete</button>
+                                                        <button type="submit" class="btn btn-sm btn-danger" title="Delete"><i class="fas fa-trash-alt"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -87,4 +92,26 @@
             </div>
         </div>
     </div>
+    @include('addDocumentmodal')
+    @include('viewDocumentModal')
+    @section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#viewDocumentModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var url = button.attr('href');
+                var modal = $(this);
+
+                $.ajax({
+                    url: url,
+                    dataType: 'html',
+                    success: function(data) {
+                        modal.find('.modal-body').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+    @endsection
 </body>
+</html>

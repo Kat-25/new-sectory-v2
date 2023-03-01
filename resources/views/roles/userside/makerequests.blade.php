@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    
 
 </head>
 
@@ -44,8 +44,9 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        @include('complainR')
+
+                        <h1 class="h3 mb-0 text-gray-800">MAKE REQUEST</h1>
+                    
                     </div>
 
                     <!-- Content Row -->
@@ -140,7 +141,7 @@
                             <!-- DataTales Example -->
                                     <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-success">View Latest Announcements</h6>
+                                            <h6 class="m-0 font-weight-bold text-success">Requests summary:</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive">
@@ -194,22 +195,9 @@
     <!-- Logout Modal-->
     @include('adminlogout')
 
-     <!-- Bootstrap core JavaScript-->
-     <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
-    <!-- Page level plugins -->
-    <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+    </script>
 
 </body>
 

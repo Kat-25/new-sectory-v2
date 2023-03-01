@@ -81,6 +81,7 @@ Route::get('/dashboard', function () {
 
 //ROUTES FOR COUNTING RESIDENT IN DASHBOARD
 Route::get('admindashboard', [dashboardcountcontroller::class, 'countResidents'])->name('admindashboard');
+Route::view('resdashboard', 'roles.userside.resdashboard')->name('resdashboard');
 
 //ROUTES FOR ADD RESIDENT VIEW
 Route::get('/getHouseholdID', [viewhouseholdscontroller::class,'getHouseholdID']);
@@ -126,6 +127,10 @@ Route::POST('viewres', [regrequestcontroller::class, 'approveReqFunc']);
         
 //     return 'Status updated successfully';
 // });
+
+//AJAX Functions
+
+Route::post('/make-InactiveStatus', [regrequestcontroller::class, 'makeInactiveStatus']);
 
 Route::post('/update-status', [regrequestcontroller::class, 'updateStatus']);
 
@@ -173,6 +178,28 @@ Route::get('/documents/{document}', [DocumentController::class, 'download'])->na
 Route::post('/documents/{document}/archive', [DocumentController::class, 'archive'])->name('documents.archive');
 Route::post('/documents/{document}/unarchive', [DocumentController::class, 'unarchive'])->name('documents.unarchive');
 Route::delete('/documents/{document}', [DocumentController::class, 'delete'])->name('documents.delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ROUTES FOR USERS SIDE
+
+Route::view('/make-requests', 'roles.userside.makerequests')->name('make-requests');
 
 
 

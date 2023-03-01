@@ -148,7 +148,12 @@ class customauthcontroller extends Controller
                 //$req = session()->put('loginID', $user->id);
                 $req = Session::put('loginID', $user->residentID);
                 Session::put('usernamee', $user->userName);
-                return redirect('admindashboard');
+                
+                if ($user->userRole == 'normaluser') {
+                    return redirect()->route('resdashboard');
+                } else if ($user->userRole == 'admin' || $user->userRole == 'staff') {
+                    return redirect()->route('admindashboard');
+                }
             }
             else{
                 return back()->with('failed', 'Incorrect password.');

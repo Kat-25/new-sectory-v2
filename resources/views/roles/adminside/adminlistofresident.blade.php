@@ -64,6 +64,7 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
+                                            <th>Resident ID</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Age</th>
@@ -75,8 +76,9 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $request)
-                                        <tr>
+                                        <tr data-resident-id="{{ $request->residentID }}">
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $request->residentID}}</td>
                                             <td>{{ $request->firstName }}</td>
                                             <td>{{ $request->lastName }}</td>
                                             <td>{{ $request->userAge }}</td>
@@ -98,7 +100,7 @@
                                                     </span>
                                                     {{-- <span class="text">Edit</span> --}}
                                                   </a>
-                                                  <a href="" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Deactivate" style="background-color: #343a40; color: #f2f2f2; width:42px;">
+                                                  <a href="" class="btn button btn-icon-split d-flex align-items-center justify-content-center" onclick="makeInactive('{{ $request->residentID }}')" data-toggle="tooltip" data-placement="top" title="Deactivate" style="background-color: #343a40; color: #f2f2f2; width:42px;">
                                                     <span class="icon text-white-50">
                                                       <i class="fas fa-user-times"></i>
                                                     </span>
@@ -155,22 +157,45 @@
     </div>
 
     <script>
+        function makeInactive(residentID) {
+            // Find the row with the matching residentID
+            var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+          
+            // Update the accountStatus cell of the row to "Approved"
+            // var accountStatusCell = row.querySelector("td:nth-child(7)");
+            // accountStatusCell.textContent = "Approved";
+          
+            // Make an AJAX request to update the database
+            axios.post('/make-InactiveStatus', {
+              residentID: residentID,
+              residentStatus: 'Inactive'
+              
+            })
+            .then(function (response) {
+                event.preventDefault();
+              console.log(response.data);
+              if (response.data.redirect) {
+                window.location.href = response.data.redirect;
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+              event.preventDefault();
+              if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+              }
+            });
+          }
+          
+    </script>
+
+    <script>
         $(function () {
         $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
     {{-- <script src="../js/demo/chart-area-demo.js"></script>

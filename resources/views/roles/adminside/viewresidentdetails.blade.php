@@ -128,7 +128,7 @@
                                                     <h3>PROOF OF IDENTIFICATION</h3>
                                                     <br>
                                                     <div class="d-flex">
-                                                        <img src="{{ asset($residents->proofID) }}" width="100%" class="img img-responsive expand-image" onclick="expandImage()"/>
+                                                        <img src="{{ asset($residents->proofID) }}" width="100%" height="300px" class="img img-responsive expand-image" onclick="expandImage()"/>
                                                       </div>
                                                     <p></p>
                                                     <p></p>

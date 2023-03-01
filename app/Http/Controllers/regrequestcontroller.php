@@ -150,6 +150,25 @@ class regrequestcontroller extends Controller
     ]);
     }
 
+    public function makeInactiveStatus(Request $request)
+    {
+        $residentID = $request->input('residentID');
+        $residentStatus = $request->input('residentStatus');
+
+        DB::table('residents')
+        ->where('residentID', $residentID)
+        ->update([
+            'residentStatus' => $residentStatus
+        ]);
+
+        // return response()->json([
+        //     'message' => 'Status updated successfully'
+        // ]);
+        return response()->json([
+            
+        ]);
+    }
+
     // public function editComplaint($id){
     //     $complaint = Complaints::findOrFail($id);
     //     // $complaint = Complaints::all();

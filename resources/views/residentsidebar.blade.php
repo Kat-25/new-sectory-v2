@@ -15,7 +15,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="../Residentpages/dashboard.php">
+        <a class="nav-link" href="{{route('resdashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -64,6 +64,7 @@
                 <a class="collapse-item" href="../Residentpages/fillclearance.php">Clearance</a>
                 <a class="collapse-item" href="../Residentpages/fillcedula.php">Cedula</a>
                 <a class="collapse-item" href="../Residentpages/fillresidency.php">Residency</a>
+                <a class="collapse-item" href="{{route('make-requests')}}">Make Requests</a>
             </div>
         </div>
     </li>

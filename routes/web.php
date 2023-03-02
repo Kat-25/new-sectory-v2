@@ -81,7 +81,9 @@ Route::get('/dashboard', function () {
 
 //ROUTES FOR COUNTING RESIDENT IN DASHBOARD
 Route::get('admindashboard', [dashboardcountcontroller::class, 'countResidents'])->name('admindashboard');
+// Route::get('admindashboard', [dashboardcountcontroller::class, 'residentOverview'])->name('admindashboard');
 Route::view('resdashboard', 'roles.userside.resdashboard')->name('resdashboard');
+
 
 //ROUTES FOR ADD RESIDENT VIEW
 Route::get('/getHouseholdID', [viewhouseholdscontroller::class,'getHouseholdID']);

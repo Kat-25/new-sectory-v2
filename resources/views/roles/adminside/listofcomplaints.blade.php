@@ -66,7 +66,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No.</th>
                                             <th>Complainant</th>
                                             {{-- <th>Time Of Incident</th> --}}
                                             <th>Date Of Incident</th>
@@ -91,12 +91,12 @@
                                              <td class="align-middle" style="width: calc(100% - 50px);">
                                                 <div class="d-flex justify-content-center">
                                                 <!-- Button trigger modal -->
-                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split " data-toggle="modal" data-target="#viewcomplaintdetails">
+                                                <a href="{{route('complaints.view', $item->id) }}" class="btn btn-success btn-icon-split " data-toggle="modal" data-target="#viewcomplaintdetails">
                                                     <span class="icon text-white-100">
                                                         <i class="fas fa-eye"></i>
                                                       </span>
                                                 </a>
-                                                <a href="{{route('complaints.update', $item->id) }}" class="btn btn-primary btn-icon-split"data-toggle="modal" data-target="#exampleModal1">
+                                                <a href="{{route('complaints.edit', $item->id) }}" class="btn btn-primary btn-icon-split" >
                                                     <span class="icon text-white-100">
                                                         <i class="fas fa-check"></i>
                                                       </span>
@@ -139,8 +139,14 @@
         </div>
         <!-- End of Content Wrapper -->
         @include('adminfooter')
+        
+
+</div>
+        
+
+
         @include('viewcomplaintdetails')
-        @include('editcomplaintsmodal')
+        {{-- @include('editcomplaintsmodal') --}}
     </div>
     <!-- End of Page Wrapper -->
 

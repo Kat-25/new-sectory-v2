@@ -7,6 +7,7 @@ use App\Http\Controllers;
 use App\Models\Complaints;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use DB;
 
 
 class complaintsController extends Controller
@@ -92,8 +93,20 @@ class complaintsController extends Controller
     }
     public function viewDetails($id)
     {
-        $data = Complaints::find($id);
-        return view('viewcomplaintdetails', ['complaints' => $data]);
+        
+        $complaints = Complaints::find($id);
+        // $complaint = Complaint::where('id', $id)->first();
+        // $complaints = Complaints::table('complaints_table')->get();
+        //  return view('roles.adminside.listofcomplaints', compact('complaints'));
+        // return view('viewcomplaintdetails')->with('complaint', $complaint)->with('complaints', $complaints);
+        // if (!$id) {
+        //     // handle case when id is null or empty
+        //     // maybe redirect to another page or show an error message
+        // } else {
+        //     $complaints = Complaints::find($id);
+        return view('viewcomplaintdetails');
+        // }
+    
     }
     
     // public function editComplaintFunc (Request $request)
@@ -108,6 +121,17 @@ class complaintsController extends Controller
     //     Complaints::table('complaints_table')->where('id', $request->id)->update($update);
     //     return redirect()->back()->with('success', 'Updated Complaint Succesfully!');
     // }
-    
+    public function viewModalFunc($id)
+    {
+        // $data = DB::table('complaints_table')->where('id', $id)->first();
+        if (!$id) {
+             // handle case when id is null or empty
+            //     // maybe redirect to another page or show an error message
+             } 
+        else {
+            $complaints = Complaints::find($id);
+        return view('viewcomplaintdetails', compact('data'));
+    }
 
+}
 }

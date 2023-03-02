@@ -10,7 +10,7 @@
             </div>
         <div class="modal-body">
 
-        <form action="{{route('complaints.update')}}" method="POST">
+        <form action="{{route('complaints.edit')}}" method="POST">
             @csrf
         <div class="card-body">                   
             <div class="form-group">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col col-sm-3 col-md-8 col-lg-12">
                         <label for="date">Date</label> 
-                        <input type="date" class="form-control datetimepicker-input" name="date" data-target="#datetimepicker1" value={{ $complaint->dateOfIncident ?? '' }} />
+                        <input type="date" class="form-control datetimepicker-input" name="date" data-target="#datetimepicker1" value={{ $complaint->dateOfIncident}} />
                     </div>
                     <div class="col col-sm-3 col-md-8 col-lg-12">
                         <div class="form-group mt-2">

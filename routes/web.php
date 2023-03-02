@@ -142,6 +142,7 @@ Route::controller(complaintsController::class)->group(function ()
     Route::get('/complaints/all', 'viewComplaints')->name('roles.adminside.listofcomplaints');
     Route::get('/complaints/add', 'addComplaints')->name('complaints.add');
     Route::get('/complaints/edit/', 'editComplaint')->name('complaints.edit');
+    Route::get('/complaints/view/{id}', 'viewModalFunc')->name('complaints.view');
     Route::POST('/complaints/store', 'storeComplaints')->name('complaints.store');
     Route::POST('/complaints/update', 'updateComplaints')->name('complaints.update');
     Route::view('/complaints/details/', 'roles.adminside.viewcomplaintdetails');

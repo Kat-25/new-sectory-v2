@@ -136,202 +136,143 @@
 
                     <!-- Content Row -->
                   
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-7 col-lg-7"
-                        >
-                            <div class="card shadow mb-4">
-                               
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Resident Overview</h6>
-                                    
-                                    
-                                </div>
-                                  
-                                <!-- Card Body -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    
-                                    <div class="dropdown no-arrow">
-                                        
-                                        {{-- @foreach ($data as $request)
-                                        @endforeach --}}
-                                        
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <thead>
-                                                    <tr style="font-size: 13px">
-                                                        <th>No.</th>
-                                                        <th>Resident ID</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Age</th>
-                                                        <th>Birth Place</th>
-                                                        <th>Household No.</th>
-                                                        <th>ID</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($data as $request)
-                                                    <tr data-resident-id="{{ $request->residentID }}">
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $request->residentID}}</td>
-                                                        <td>{{ $request->firstName }}</td>
-                                                        <td>{{ $request->lastName }}</td>
-                                                        <td>{{ $request->userAge }}</td>
-                                                        <td>{{ $request->birthPlace }}</td>
-                                                        <td>{{ $request->householdNo}}</td>
-                                                        <td class="align-middle text-center">
-                                                            <img src="{{ asset($request->proofID) }}" width="50" height="50" class="img img-responsive expand-image" onclick="expandImage()" />                                   
-                                                        </td>
-                                                        <td>
-                                                            <div>
-                                                                <a href="{{"roles.adminside.viewresidentdetails", $request->residentID}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View" style="background-color: #20c9a6; color: #ffffff;">
-                                                                    <span class="icon text-white-50">
-                                                                      <i class="fas fa-eye"></i>
-                                                                    </span>
-                                                                    {{-- <span class="text">View</span> --}}
-                                                                  </a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach                                       
-                                                </tbody>
-                                            </table>
-                                       
-                                        {{-- <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Archive</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div> --}}{{ $data->withQueryString()->links('pagination::bootstrap-5')}} 
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-5 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Registration Requests</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <!-- Card Body -->
-                                 <div class="card-body">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr style="font-size: 13px">
-                                                <th>No.</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Status</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($data as $request)
-                                            <tr data-resident-id="{{ $request->residentID }}">
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $request->firstName }}</td>
-                                                <td>{{ $request->lastName }}</td>
-                                                <td>{{ $request->accountStatus }}</td>
-                                                <td class="align-middle" style="width: calc(100% - 50px);">
-                                                  <div class="d-flex justify-content-center">
-                                                    <a href="{{"request/".$request->residentID}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" style="background-color: #5f7a74; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="View">
-                                                      <span class="icon text-white-100">
-                                                        <i class="fas fa-eye"></i>
-                                                      </span>
-                                                      {{-- <span class="text">View</span> --}}
-                                                    </a>
-                                                  </div>
-                                                </td>
-                                            </tr>
-                                              {{-- <div class="center">
-                                                <button onclick="toggleForm()">Signup</button>
-                                              </div> --}}
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                    <div class="mt-4 text-center small">
-                                        {{ $data->withQueryString()->links('pagination::bootstrap-5')}} 
-                                        {{-- <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i>Household
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i>Resident
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i>Staff
-                                        </span> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-12">
-                            <h1 class="h3 mb-2 text-gray-800"></h1>
-                            <p class="mb-4"><a target="_blank"
-                                    href=""></a></p>
-
-                                    <!-- DataTales Example -->
+                        <div class="row">
+                                <div class="col-12 col-md-12 col-lg-6">
                                     <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">View Latest Announcements</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th></th>
-                                                            <th>Description</th>
-                                                            <th></th>
-                                                            <th>Date</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Tiger Nixon</td>
-                                                            <th></th>
-                                                            <td>System Architect</td>
-                                                            <th></th>
-                                                            <td>2011/04/25</td>
-                                                            <th></th>
-                                                        </tr>
-                                                        
-                                                    </tbody>
-                                                </table>
+                                                <div class="card-header py-3">
+                                                    <h6 class="m-0 font-weight-bold text-primary">Resident Overview</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                            <thead>
+                                                                <tr style="font-size: 13px">
+                                                                    <th>No.</th>
+                                                                    <th>Resident ID</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Last Name</th>
+                                                                    <th>Age</th>
+                                                                    <th>Birth Place</th>
+                                                                    <th>Household No.</th>
+                                                                    <th>ID</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            @foreach ($data as $request)
+                                                            <tr data-resident-id="{{ $request->residentID }}">
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $request->residentID}}</td>
+                                                                <td>{{ $request->firstName }}</td>
+                                                                <td>{{ $request->lastName }}</td>
+                                                                <td>{{ $request->userAge }}</td>
+                                                                <td>{{ $request->birthPlace }}</td>
+                                                                <td>{{ $request->householdNo}}</td>
+                                                                <td class="align-middle text-center">
+                                                                    <img src="{{ asset($request->proofID) }}" width="50" height="50" class="img img-responsive expand-image" onclick="expandImage()" />                                   
+                                                                </td>
+                                                                <td>
+                                                                    <div>
+                                                                        <a href="{{"roles.adminside.viewresidentdetails", $request->residentID}}" class="btn button d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="View" style="background-color: #20c9a6; color: #ffffff;">
+                                                                            <span class="icon text-white-50">
+                                                                            <i class="fas fa-eye "style="color: white;"></i>
+                                                                            </span>
+                                                                            {{-- <span class="text">View</span> --}}
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach                                       
+                                                        </tbody>
+                                                        </table>
+                                                        {{ $data->withQueryString()->links('pagination::bootstrap-5')}} 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                            <!-- Pie Chart -->
+                                <div class="col-12 col-md-12 col-lg-6">
+                                     <div class="card shadow">
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary">Registration Request</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr style="font-size: 13px">
+                                                                <th>No.</th>
+                                                                <th>First Name</th>
+                                                                <th>Last Name</th>
+                                                                <th>Status</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                @foreach ($data as $request)
+                                                                <tr data-resident-id="{{ $request->residentID }}">
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td>{{ $request->firstName }}</td>
+                                                                    <td>{{ $request->lastName }}</td>
+                                                                    <td>{{ $request->accountStatus }}</td>
+                                                                    <td class="align-middle" style="width: calc(100% - 50px);">
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <a href="{{"request/".$request->residentID}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" style="background-color: #5f7a74; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="View">
+                                                                        <span class="icon text-white-100">
+                                                                            <i class="fas fa-eye"></i>
+                                                                        </span>
+                                                                        {{-- <span class="text">View</span> --}}
+                                                                        </a>
+                                                                    </div>
+                                                                    </td>
+                                                                </tr>
+                                                                {{-- <div class="center">
+                                                                    <button onclick="toggleForm()">Signup</button>
+                                                                </div> --}}
+                                                            @endforeach
+                                                            </tbody>
+                                                    </table>
+                                                    {{ $data->withQueryString()->links('pagination::bootstrap-5')}} 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                        </div>
+                            </div>
+
+                    <!-- Content Row -->
+                    <div class="col-12 col-md-12 col-lg-12">
+                                     <div class="card shadow">
+                                            <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">View Latest Announcements</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>ID</th>
+                                                                    <th></th>
+                                                                    <th>Description</th>
+                                                                    <th></th>
+                                                                    <th>Date</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Tiger Nixon</td>
+                                                                    <th></th>
+                                                                    <td>System Architect</td>
+                                                                    <th></th>
+                                                                    <td>2011/04/25</td>
+                                                                    <th></th>
+                                                                </tr>
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
                 </div>
                 <!-- /.container-fluid -->
 

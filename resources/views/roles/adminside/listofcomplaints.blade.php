@@ -91,7 +91,7 @@
                                              <td class="align-middle" style="width: calc(100% - 50px);">
                                                 <div class="d-flex justify-content-center">
                                                 <!-- Button trigger modal -->
-                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split " data-toggle="modal" data-target="#viewcomplaintdetails">
+                                                <a href="/registration-requests/details" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#viewcomplaintdetails">
                                                     <span class="icon text-white-100">
                                                         <i class="fas fa-eye"></i>
                                                       </span>

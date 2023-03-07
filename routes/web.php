@@ -68,6 +68,16 @@ Route::POST('updateres', [editresidentcontroller::class, 'editResidentFunc1']);
 //     return view('roles.adminside.admindashboard');
 // })->name('admindashboard');
 
+Route::get('housedetails/{id}', [edithouseholdcontroller::class, 'showValueHouseholdsFunc1']);
+Route::POST('viewhouse', [edithouseholdcontroller::class, 'editHouseholdsFunc1']);
+
+
+
+
+
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

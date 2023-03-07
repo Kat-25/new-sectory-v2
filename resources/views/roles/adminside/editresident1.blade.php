@@ -63,7 +63,7 @@
                             <div class="col-11 col-sm-9 col-md-11 col-lg-11 text-center p-0 mt-3 mb-2">
                             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                                 <h2><strong>Update Account</strong></h2>
-                                <p><a class="small" href="admindashboard">Go back to dashboard</a></p>
+                                <p><a class="small" href={{route('residentlist')}}>Go back to dashboard</a></p>
                                 <div class="row">
                                     <div class="col-md-12 mx-0">
                                         <form id="msform" action="/updateres" method="POST" enctype="multipart/form-data">

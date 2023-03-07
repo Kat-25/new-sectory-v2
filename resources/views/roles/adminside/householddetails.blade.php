@@ -45,7 +45,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">UPDATE HOUSEHOLD</h1>
+                        <h1 class="h3 mb-0 text-gray-800">VIEW HOUSEHOLD</h1>
                         
                     </div>
                     <!-- Page Heading -->
@@ -63,33 +63,36 @@
                                 @csrf
                                 <div class="mb-2">
                                     {{-- <label class="form-label" for="householdidh">Household ID:</label> --}}
-                                    <input class='form-control' type="hidden" name="householdidh" id='householdidh' value="{{$householdtable['householdID']}}">
+                                    <input class='form-control' type="hidden" name="householdidh" id='householdidh' readonly value="{{$householdtable['householdID']}}">
                                 </div>
                                 <div class="mb-2">
                                     <label class="form-label" for="householdno">Household No:</label>
-                                    <input class='form-control' type="text" name="householdno" id='householdno' value="{{$householdtable['householdNo']}}">
+                                    <input class='form-control' type="text" name="householdno" id='householdno' readonly value="{{$householdtable['householdNo']}}">
                                 </div>
                                 <div class="mb-2">
                                     <label class="form-label" for="addressh">Address:</label>
-                                    <input class="form-control" type="text" id="addressh" name="addressh" value="{{$householdtable['householdAddress']}}">
+                                    <input class="form-control" type="text" id="addressh" name="addressh" readonly value="{{$householdtable['householdAddress']}}">
                                 </div>
                                 <div class="mb-2">
                                     <label class="form-label" for="purokleaderh">Purok Leader:</label>
-                                    <input class="form-control" type="text" id="purokleaderh" name="purokleaderh" value="{{$householdtable['purokLeader']}}">
+                                    <input class="form-control" type="text" id="purokleaderh" name="purokleaderh" readonly value="{{$householdtable['purokLeader']}}">
                                 </div>
                                 <div class="mb-2">
+                                    <label class="form-label" for="purokleaderh">Household Status:</label>
+                                    <input class="form-control" type="text" id="purokleaderh" name="purokleaderh" readonly value="{{$householdtable['householdStatus']}}">
+                                </div>
+                                {{-- <div class="mb-2">
                                     <label class="form-label" for="householdstatush">Household Status:</label>
                                     <select id="householdstatush" name="householdstatush" class="form-select" aria-label="Default select civil status">
-                                        <option value="{{$householdtable['householdStatus']}}" selected>{{$householdtable['householdStatus']}}</option>
-                                        <option value="Active">Active</option>
+                                        <option value="Active" selected>Active</option>
                                         <option value="Inactive">Inactive</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <br>
                                 <br>
-                                <div class="me-6">
+                                {{-- <div class="me-6">
                                     <button type="submit" name="submit" class="form-control btn btn-primary">Update Household</button>
-                                </div>
+                                </div> --}}
                             </form>                
                         </div>
                     </div>

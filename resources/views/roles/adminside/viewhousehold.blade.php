@@ -93,23 +93,23 @@
                                             
                                             </td> --}}
                                             
-                                            <td class="d-flex justify-content-center"><a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-success btn-icon-split">
-                                                <span class="icon text-white-50">
+                                            <td class="d-flex justify-content-center"><a href="{{"housedetails/".$hos['householdID']}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" style="background-color: #5f7a74; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="View">
+                                                <span class="icon text-white-100">
                                                     <i class="fas fa-eye"></i>
                                                 </span>
-                                                <span class="text">View</span>
+                                                {{-- <span class="text">View</span> --}}
                                             </a>
-                                            <a href="{{"update/".$hos['householdID']}}" class="btn btn-primary btn-icon-split">
+                                            <a href="{{"update/".$hos['householdID']}}" class="btn button btn-icon-split d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Edit" style="background-color: #3cbfb3; color: #ffffff; width:42px;">
                                                 <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
+                                                    <i class="fas fa-edit"></i>
                                                 </span>
-                                                <span class="text">Edit</span>
+                                                {{-- <span class="text">Edit</span> --}}
                                             </a>
-                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn btn-danger btn-icon-split">
+                                            <a href="../Barangaystaff/viewannouncementstaff.php" class="btn button btn-icon-split d-flex align-items-center justify-content-center" {{-- onclick="makeInactive('{{ $request->residentID }}')" --}} data-toggle="tooltip" data-placement="top" title="Deactivate" style="background-color: #343a40; color: #f2f2f2; width:42px;">
                                                 <span class="icon text-white-50">
-                                                    <i class="fas fa-flag"></i>
+                                                    <i class="fas fa-warehouse"></i>
                                                 </span>
-                                                <span class="text">Archive</span>
+                                                {{-- <span class="text">Archive</span> --}}
                                             </a>
                                              </td>
                                         </tr>
@@ -158,6 +158,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+      </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>

@@ -4,7 +4,9 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="sidebar-brand-icon">
+            <i class=""></i>
+            <img src="../img/SecTorylogo.png" class="img-fluid logo" style="height: 50px;width: auto;"/>
         </div>
         <div class="sidebar-brand-text mx-3">Sectory</div>
     </a>

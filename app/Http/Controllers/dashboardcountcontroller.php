@@ -16,8 +16,9 @@ class dashboardcountcontroller extends Controller
         $residentCount = dashboardcountmodel::countActiveResidents();
         $houseCount = dashboardcounthouseholdmodel::countActiveHouseholds();$displayName = array();
         $pendingAccount = dashboardcountmodel::countPendingAccounts();
-        $data = db::table('residents')->paginate(5);
-        return view('roles.adminside.admindashboard', compact('resident','residentCount','houseCount','pendingAccount', 'data'));
+        $data1 = db::table('residents')->paginate(5, ['*'], 'page1');
+        $data2 = db::table('residents')->paginate(5, ['*'], 'page2');
+        return view('roles.adminside.admindashboard', compact('resident', 'residentCount', 'houseCount', 'pendingAccount', 'data1', 'data2'));
     }
 
     // public function residentOverview()

@@ -159,7 +159,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                            @foreach ($data as $request)
+                                                            @foreach ($data1 as $request)
                                                             <tr data-resident-id="{{ $request->residentID }}">
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $request->residentID}}</td>
@@ -185,7 +185,7 @@
                                                         @endforeach                                       
                                                         </tbody>
                                                         </table>
-                                                        {{ $data->withQueryString()->links('pagination::bootstrap-5')}} 
+                                                        <div class="d-flex justify-content-end">{{ $data1->links('pagination::bootstrap-4') }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                                @foreach ($data as $request)
+                                                                @foreach ($data2 as $request)
                                                                 <tr data-resident-id="{{ $request->residentID }}">
                                                                     <td>{{ $loop->iteration }}</td>
                                                                     <td>{{ $request->firstName }}</td>
@@ -232,7 +232,7 @@
                                                             @endforeach
                                                             </tbody>
                                                     </table>
-                                                    {{ $data->withQueryString()->links('pagination::bootstrap-5')}} 
+                                                    <div class="d-flex justify-content-end">{{ $data2->links('pagination::bootstrap-4') }}</div> 
                                                 </div>
                                             </div>
                                         </div>

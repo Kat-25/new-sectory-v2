@@ -99,11 +99,22 @@
                                                   </span>
                                                   {{-- <span class="text">View</span> --}}
                                                 </a>
-                                                <a href="" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" id="approveBtn" onclick="approveRequest('{{ $request->residentID }}')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                {{-- <a href="" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" id="approveBtn" onclick="approveRequest('{{ $request->residentID }}')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve" data-target="#approveModal">
                                                   <span class="icon text-white-50">
                                                     <i class="fas fa-check"></i>
-                                                  </span>
+                                                  </span> --}}
                                                   {{-- <span class="text">Approve</span> --}}
+                                                {{-- </a> --}}
+                                                @if ($request)
+                                                <a href="#" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" id="approveBtn" style="background-color: #30e211; color: #ffffff;"
+                                                  data-toggle="modal" data-placement="top" title="Approve" data-target="#approveModal">
+                                                @else
+                                                <a href="#" class="btn btn-success" onclick="$('#approveModal').modal('hide');" data-toggle="modal" data-placement="top" title="Approve">
+                                                @endif 
+                                                  <span class="icon text-white-50">
+                                                        <i class="fas fa-check"></i>
+                                                    </span>
+                                                    <span class="text">Approve</span>
                                                 </a>
                                                 <a href="" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="rejectRequest('{{ $request->residentID }}')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"> 
                                                   <span class="icon text-center text-white-50">
@@ -157,6 +168,34 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Approve Request Modal -->
+    <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="approveModalLabel">Approve Request?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              Are you sure you want to approve this request?
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a href="#" class="btn btn-success" onclick="approveRequest('{{ $request->residentID }}'); $('#approveModal').modal('hide');" data-toggle="modal" data-placement="top" title="Approve">
+                  <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                  </span>
+                  <span class="text">Approve</span>
+              </a>
+          </div>
+      </div>
+    </div>
+    </div>
+
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -214,7 +253,7 @@
       }
     </script> --}}
 
-    <script>
+    {{-- <script>
     function approveRequest(residentID) {
         // Find the row with the matching residentID
         var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
@@ -247,6 +286,38 @@
         });
       }
       
+    </script> --}}
+
+   
+
+    <script>
+    function approveRequest(residentID) {
+        // Find the row with the matching residentID
+        var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+      
+        // Update the accountStatus cell of the row to "Approved"
+        var accountStatusCell = row.querySelector("td:nth-child(7)");
+        accountStatusCell.textContent = "Approved";
+      
+        // Make an AJAX request to update the database
+        axios.post('/update-status', {
+            residentID: residentID,
+            accountStatus: 'Approved'
+        })
+        .then(function (response) {
+            console.log(response.data);
+            $('#approveModal').modal('hide'); // Close the modal
+            window.location.reload(); // Refresh the page using JavaScript
+        })
+        .catch(function (error) {
+            console.log(error);
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+        });
+    }
     </script>
 
     <script>

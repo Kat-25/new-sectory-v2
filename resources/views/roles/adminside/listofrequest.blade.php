@@ -115,13 +115,15 @@
                                                     <span class="text">Approve</span>
                                                 </a> --}}
 
-                                                <a href="#" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="showApproveModal('{{ $request->residentID }}')" id="approveBtn" style="background-color: #30e211; color: #ffffff;" data-toggle="modal" data-target="#approveModal">
-                                                  <span class="icon text-white-50">
+                                                <a href="#" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="showApproveModal('{{ $request->residentID }}')" id="approveBtn" style="background-color: #30e211; color: #ffffff;" data-toggle="modal" data-placement="top" data-target="#approveModal">
+                                                  <span class="icon text-white-50" data-toggle="tooltip" title="Approve">
                                                     <i class="fas fa-check"></i>
                                                   </span>
-                                                  <span class="text">Approve</span>
+                                                  
                                                 </a>
-
+                                                {{-- <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                                  <span data-toggle="modal" data-target="#exampleModal">Tooltip & modal</span>
+                                                 </button> --}}
                                                 <a href="" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="rejectRequest('{{ $request->residentID }}')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"> 
                                                   <span class="icon text-center text-white-50">
                                                     <i class="fas fa-ban"></i>
@@ -260,9 +262,9 @@
           <div class="modal-header">
             <h5 class="modal-title" id="approveModalLabel">Approve Request?</h5>
               {{-- <button class="close" type="button" data-dismiss="modal" aria-label="Close"> --}}
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <a href="{{route('registration-requests')}}"><button class="close" type="button" aria-label="Close">
               <span aria-hidden="true">×</span>
-            </button>
+            </button></a>
           </div>
           <div class="modal-body">
               Are you sure you want to approve this request?
@@ -270,8 +272,11 @@
           <div class="modal-footer">
             {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> --}}
             <div>
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a href="{{route('registration-requests')}}"><button class="btn btn-secondary" type="button">Cancel</button></a>
             </div>
+            {{-- <div>
+              <button class="btn btn-secondary" type="button" onclick="hideModal()">Cancel</button>
+            </div> --}}
             <form method="POST" action="" style="display: inline-block;">
               @csrf
               <button type="submit" class="btn btn-success">Approve</button>
@@ -581,6 +586,13 @@
         });
     }
 </script> --}}
+
+<script>
+  function hideModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+</script>
 
 <script>
 function showApproveModal(residentID) {

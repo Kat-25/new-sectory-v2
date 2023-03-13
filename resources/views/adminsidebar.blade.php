@@ -3,7 +3,7 @@
  <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #609BA8;">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
             <i class=""></i>
             <img src="../img/SecTorylogo.png" class="img-fluid logo" style="height: 50px;width: auto;"/>

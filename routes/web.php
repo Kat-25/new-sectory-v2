@@ -95,6 +95,7 @@ Route::get('admindashboard', [dashboardcountcontroller::class, 'countResidents']
 Route::view('resdashboard', 'roles.userside.resdashboard')->name('resdashboard');
 
 
+
 //ROUTES FOR ADD RESIDENT VIEW
 Route::get('/getHouseholdID', [viewhouseholdscontroller::class,'getHouseholdID']);
 Route::POST('confirmaddres', [addresidentcontroller::class,'addResidentFunc']);
@@ -199,7 +200,7 @@ Route::get('/documents/{document}/modal', [DocumentController::class, 'modal'])-
 
 
 
-
+Route::post('/approve-request/{residentID}', [viewresidentscontroller::class, 'approveRequest']);
 
 
 

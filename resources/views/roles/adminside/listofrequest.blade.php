@@ -105,17 +105,23 @@
                                                   </span> --}}
                                                   {{-- <span class="text">Approve</span> --}}
                                                 {{-- </a> --}}
-                                                @if ($request)
-                                                <a href="#" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" id="approveBtn" style="background-color: #30e211; color: #ffffff;"
+                                                
+                                                {{-- <a href="#" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" data-resident-id="{{ $request->residentID }}" id="approveBtn" style="background-color: #30e211; color: #ffffff;"
                                                   data-toggle="modal" data-placement="top" title="Approve" data-target="#approveModal">
-                                                @else
-                                                <a href="#" class="btn btn-success" onclick="$('#approveModal').modal('hide');" data-toggle="modal" data-placement="top" title="Approve">
-                                                @endif 
+              
                                                   <span class="icon text-white-50">
                                                         <i class="fas fa-check"></i>
                                                     </span>
                                                     <span class="text">Approve</span>
+                                                </a> --}}
+
+                                                <a href="#" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="showApproveModal('{{ $request->residentID }}')" id="approveBtn" style="background-color: #30e211; color: #ffffff;" data-toggle="modal" data-target="#approveModal">
+                                                  <span class="icon text-white-50">
+                                                    <i class="fas fa-check"></i>
+                                                  </span>
+                                                  <span class="text">Approve</span>
                                                 </a>
+
                                                 <a href="" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="rejectRequest('{{ $request->residentID }}')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"> 
                                                   <span class="icon text-center text-white-50">
                                                     <i class="fas fa-ban"></i>
@@ -169,7 +175,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Approve Request Modal -->
+    {{-- <!-- Approve Request Modal -->
     <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -185,7 +191,7 @@
           </div>
           <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a href="#" class="btn btn-success" onclick="approveRequest('{{ $request->residentID }}'); $('#approveModal').modal('hide');" data-toggle="modal" data-placement="top" title="Approve">
+              <a href="#" class="btn btn-success" onclick="approveRequest('{{ $request->residentID }}', this.closest('tr')); $('#approveModal').modal('hide');" data-toggle="modal" data-placement="top" title="Approve">
                   <span class="icon text-white-50">
                       <i class="fas fa-check"></i>
                   </span>
@@ -194,7 +200,133 @@
           </div>
       </div>
     </div>
+    </div> --}}
+
+    {{-- <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="approveModalLabel">Approve Request?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to approve this request?
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a href="#" class="btn btn-success" onclick="approveRequest('{{ $request->residentID }}', this.closest('tr')); $('#approveModal').modal('hide');" data-toggle="modal" data-placement="top" title="Approve">
+              <span class="icon text-white-50">
+                <i class="fas fa-check"></i>
+              </span>
+              <span class="text">Approve</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> --}}
+
+    <!-- Approve Request Modal -->
+    {{-- <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="approveModalLabel">Approve Request?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to approve this request?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a href="#" class="btn btn-success approve-btn" data-resident-id="" data-dismiss="modal">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Approve</span>
+                </a>
+            </div>
+        </div>
     </div>
+    </div> --}}
+
+    <!-- Approve Request Modal -->
+    <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="approveModalLabel">Approve Request?</h5>
+              {{-- <button class="close" type="button" data-dismiss="modal" aria-label="Close"> --}}
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              Are you sure you want to approve this request?
+          </div>
+          <div class="modal-footer">
+            {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> --}}
+            <div>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+            <form method="POST" action="" style="display: inline-block;">
+              @csrf
+              <button type="submit" class="btn btn-success">Approve</button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{-- <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="approveModalLabel">Approve Request</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to approve this request?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <form method="POST" action="" style="display: inline-block;">
+              @csrf
+              <button type="submit" class="btn btn-success">Approve</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> --}}
+
+    {{-- <div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="approveModalLabel">Approve Request</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to approve this request?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <form method="POST" action="" style="display: inline-block;">
+              @csrf
+              <button type="submit" class="btn btn-success">Approve</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> --}}
 
 
     <!-- Logout Modal-->
@@ -290,7 +422,7 @@
 
    
 
-    <script>
+    {{-- <script>
     function approveRequest(residentID) {
         // Find the row with the matching residentID
         var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
@@ -318,7 +450,243 @@
             }
         });
     }
-    </script>
+    </script> --}}
+
+    {{-- <script>
+
+    function approveRequest(residentID, row) {
+      // Update the accountStatus cell of the row to "Approved"
+      var accountStatusCell = row.querySelector("td:nth-child(7)");
+      accountStatusCell.textContent = "Approved";
+    
+      // Make an AJAX request to update the database
+      axios.post('/update-status', {
+          residentID: residentID,
+          accountStatus: 'Approved'
+      })
+      .then(function (response) {
+          console.log(response.data);
+          $('#approveModal').modal('hide'); // Close the modal
+          window.location.reload(); // Refresh the page using JavaScript
+      })
+      .catch(function (error) {
+          console.log(error);
+          if (error.response) {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+          }
+      });
+    }
+  </script> --}}
+
+  {{-- // function approveRequest(residentID, button) {
+  //   // Update the accountStatus cell of the row to "Approved"
+  //   var accountStatusCell = button.closest("tr").querySelector("td:nth-child(7)");
+  //   accountStatusCell.textContent = "Approved";
+
+  //   // Make an AJAX request to update the database
+  //   axios.post('/update-status', {
+  //       residentID: residentID,
+  //       accountStatus: 'Approved'
+  //   })
+  //   .then(function (response) {
+  //       console.log(response.data);
+  //       if (response.data.redirect) {
+  //           window.location.href = response.data.redirect;
+  //       }
+  //       $('#approveModal').modal('hide');
+  //       location.reload();
+  //   })
+  //   .catch(function (error) {
+  //       console.log(error);
+  //       if (error.response) {
+  //           console.log(error.response.data);
+  //           console.log(error.response.status);
+  //           console.log(error.response.headers);
+  //       }
+  //   });
+  // } --}}
+
+  {{-- <script>
+  function approveRequest(residentID, row) {
+
+  // Find the row with the matching residentID
+  // var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+  // // Update the accountStatus cell of the row to "Approved"
+  // var accountStatusCell = row.querySelector("td:nth-child(7)");
+  // accountStatusCell.textContent = "Approved";
+
+  var rows = document.querySelectorAll("tr[data-resident-id='" + residentID + "']");
+  rows.forEach(function(row) {
+    // Update the accountStatus cell of the row to "Approved"
+    var accountStatusCell = row.querySelector("td:nth-child(7)");
+    accountStatusCell.textContent = "Approved";
+  });
+
+  // Hide the modal
+  $('#approveModal').modal('hide');
+
+  // Make an AJAX request to update the database
+  axios.post('/update-status', {
+    residentID: residentID,
+    accountStatus: 'Approved'
+  })
+  .then(function (response) {
+    event.preventDefault();
+    console.log(response.data);
+    if (response.data.redirect) {
+      window.location.href = response.data.redirect;
+    }
+  })
+  .catch(function (error) {
+    console.log(error);
+    event.preventDefault();
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
+  });
+  }
+
+  </script> --}}
+
+  {{-- <script>
+    $(document).on('click', '.approve-btn', function() {
+        var residentID = $(this).data('resident-id');
+        approveRequest(residentID);
+    });
+
+    function approveRequest(residentID) {
+        // Make an AJAX request to update the database
+        var residentID = document.getElementById('approveBtn').getAttribute('data-resident-id');
+        axios.post('/update-status', {
+            residentID: residentID,
+            accountStatus: 'Approved'
+        })
+        .then(function (response) {
+            console.log(response.data);
+            if (response.data.redirect) {
+                window.location.href = response.data.redirect;
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+        });
+    }
+</script> --}}
+
+<script>
+function showApproveModal(residentID) {
+  // Get the approve modal and update its action URL
+  var approveModal = document.querySelector('#approveModal');
+  approveModal.querySelector('form').action = '/approve-request/' + residentID;
+
+  // Show the modal
+  $(approveModal).modal('show');
+}
+</script>
+
+{{-- <script>
+
+function approveRequest(residentID) {
+  // Find the row with the matching residentID
+  var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+
+  // Update the accountStatus cell of the row to "Approved"
+  var accountStatusCell = row.querySelector("td:nth-child(5)");
+  accountStatusCell.textContent = "Approved";
+
+  // Hide the modal
+  $('#approveModal').modal('hide');
+
+  // Make an AJAX request to update the database
+  axios.post('/update-status', {
+    residentID: residentID,
+    accountStatus: 'Approved'
+  })
+  .then(function (response) {
+    event.preventDefault();
+    console.log(response.data);
+    if (response.data.redirect) {
+      window.location.href = response.data.redirect;
+    }
+  })
+  .catch(function (error) {
+    console.log(error);
+    event.preventDefault();
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
+  });
+}
+
+</script> --}}
+
+    {{-- <script>
+      function approveRequest(residentID, row) {
+          // Update the accountStatus cell of the row to "Approved"
+          var accountStatusCell = row.querySelector("td:nth-child(7)");
+          accountStatusCell.textContent = "Approved";
+        
+          // Make an AJAX request to update the database
+          axios.post('/update-status', {
+              residentID: residentID,
+              accountStatus: 'Approved'
+          })
+          .then(function (response) {
+              console.log(response.data);
+              $('#approveModal').modal('hide'); // Close the modal
+              window.location.reload(); // Refresh the page using JavaScript
+          })
+          .catch(function (error) {
+              console.log(error);
+              if (error.response) {
+                  console.log(error.response.data);
+                  console.log(error.response.status);
+                  console.log(error.response.headers);
+              }
+          });
+      }
+    </script> --}}
+
+    {{-- <script>
+      function approveRequest(residentID) {
+        // Find the row with the matching residentID
+        var row = document.querySelector("tr[data-resident-id='" + residentID + "']");
+    
+        // Update the accountStatus cell of the row to "Approved"
+        var accountStatusCell = row.querySelector("td:nth-child(7)");
+        accountStatusCell.textContent = "Approved";
+      
+        // Make an AJAX request to update the database
+        axios.post('/update-status', {
+            residentID: residentID,
+            accountStatus: 'Approved'
+        })
+        .then(function (response) {
+            console.log(response.data);
+            $('#approveModal').modal('hide'); // Close the modal
+            window.location.reload(); // Refresh the page using JavaScript
+        })
+        .catch(function (error) {
+            console.log(error);
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+        });
+      }
+    </script> --}}
 
     <script>
         function rejectRequest(residentID) {

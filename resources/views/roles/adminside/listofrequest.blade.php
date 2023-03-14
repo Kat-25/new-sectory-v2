@@ -267,7 +267,7 @@
             </button></a>
           </div>
           <div class="modal-body">
-              Are you sure you want to approve this request?
+            Are you sure you want to approve this account?
           </div>
           <div class="modal-footer">
             {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> --}}

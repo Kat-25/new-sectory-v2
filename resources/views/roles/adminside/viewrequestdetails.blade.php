@@ -277,8 +277,8 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="approvalModalLabel">Confirm Approval</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="approvalModalLabel">Approve Request?</h5>
+            <button type="button" class="close" id="closeBTN1" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
@@ -336,6 +336,12 @@
             
             });
             $('#closeBTN').click(function() {
+                // Hide the modal
+                $('#approvalModal').modal('hide');
+            
+                // Call the setAccountStatus function
+            });
+            $('#closeBTN1').click(function() {
                 // Hide the modal
                 $('#approvalModal').modal('hide');
             

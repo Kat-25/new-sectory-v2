@@ -64,9 +64,14 @@
                                               </span></button>
                                           </div>
                                           <div class="">
-                                            <button type="button" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Approved')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve"><span class="icon text-white-50">
+                                            {{-- <button type="button" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Approved')" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve"><span class="icon text-white-50">
                                                 <i class="fas fa-check"></i>
-                                              </span></button>
+                                              </span></button> --}}
+                                              <button id="approveBtn" type="button" class="btn btn-success btn-icon-split border d-flex align-items-center justify-content-center" style="background-color: #30e211; color: #ffffff;" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                <span class="icon text-white-50">
+                                                  <i class="fas fa-check"></i>
+                                                </span>
+                                              </button>
                                           </div>
                                           <div class="">
                                             <button type="button" class="btn btn-danger btn-icon-split border d-flex align-items-center justify-content-center" onclick="setAccountStatus('Rejected')" style="background-color: #a50f0f; color: #f2f2f2;" data-toggle="tooltip" data-placement="top" title="Reject"><span class="icon text-center text-white-50">
@@ -267,6 +272,27 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- Approve Pop-Up Modal -->
+    <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="approvalModalLabel">Confirm Approval</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            Are you sure you want to approve this account?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="closeBTN">Cancel</button>
+            <button type="button" class="btn btn-primary" id="confirmApprovalBtn" onclick="setAccountStatus('Approved')">Confirm</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <!-- Logout Modal-->
    @include('adminlogout')
 
@@ -275,6 +301,54 @@
     <!-- Custom scripts for all pages-->
     {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> --}}
+    
+    {{-- <script>
+        function showApprovalModal() {
+          // Display the popup modal
+          $('#approvalModal').modal('show');
+        
+          // When the user clicks the "Confirm" button on the modal
+          $('#confirmApprovalBtn').click(function() {
+            // Hide the modal
+            $('#approvalModal').modal('hide');
+        
+            // Call the setAccountStatus function
+            setAccountStatus('Approved');
+          });
+        }
+        
+        // Add an event listener to the button element
+        document.getElementById('approveBtn').addEventListener('click', showApprovalModal);
+    </script> --}}
+
+    <script>
+        function showApprovalModal() {
+            // Display the popup modal
+            $('#approvalModal').modal('show');
+            
+            // When the user clicks the "Confirm" button on the modal
+            $('#confirmApprovalBtn').click(function() {
+                // Hide the modal
+                $('#approvalModal').modal('hide');
+            
+                // Call the setAccountStatus function
+                setAccountStatus('Approved');
+            
+            });
+            $('#closeBTN').click(function() {
+                // Hide the modal
+                $('#approvalModal').modal('hide');
+            
+                // Call the setAccountStatus function
+            });
+        }
+        
+        
+        // Add an event listener to the button element
+        document.getElementById('approveBtn').addEventListener('click', showApprovalModal);
+    </script>
+    
+    
     <script>
         $(function () {
         $('[data-toggle="tooltip"]').tooltip()
